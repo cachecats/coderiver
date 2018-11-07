@@ -1,0 +1,41 @@
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1/coderiver?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+  # 如果字段值为null则不返回
+  jackson:
+    default-property-inclusion: non_null
+
+  application:
+    name: comments
+
+  redis:
+    port: 6379
+    database: 0
+    host: 127.0.0.1
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 5000ms
+
+#设置全局请求路径前缀
+server:
+  servlet:
+    context-path: /comments
+  port: 8083
+
+
+

@@ -1,0 +1,25 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1/coderiver?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+  # 如果字段值为null则不返回
+  jackson:
+    default-property-inclusion: non_null
+
+  application:
+    name: project
+
+server:
+  servlet:
+    context-path: /project
+
+  port: 8082
