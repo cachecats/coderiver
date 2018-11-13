@@ -16,4 +16,4 @@ zuul:
       path: /myproject/**
       serviceId: project
     #简洁写法
-    project: /myproject/**
+#    project: /myproject/**
