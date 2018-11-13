@@ -67,8 +67,9 @@ coderiver河码 类似程序员客栈，但主要目的是方便各细分领域�
 
 ### java后端
 
-[点赞模块设计 - Redis缓存 + 定时写入数据库实现高性能点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098)
+[点赞模块设计 - Redis缓存 + 定时写入数据库实现高性能点赞功能](https://juejin.im/post/5bdc257e6fb9a049ba410098)  
 
+[评论模块 - 后端数据库设计及功能实现](https://juejin.im/post/5be2c213e51d453dfe02d406)
 
 
 ### Vue pc端
