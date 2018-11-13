@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  UserInfo 与 TalentsListDTO 对象的转换类
+ * UserInfo 与 TalentsListDTO 对象的转换类
  */
 public class UserInfoTalentsListDTOConverter {
 
-    public static TalentsListDTO userInfo2TalentsListDTO(UserInfo userInfo){
+    public static TalentsListDTO userInfo2TalentsListDTO(UserInfo userInfo) {
         TalentsListDTO dto = new TalentsListDTO();
         BeanUtils.copyProperties(userInfo, dto);
         dto.setWorkdayStartTime(DateUtils.timeFormat(userInfo.getWorkdayStartTime()));
@@ -24,7 +24,7 @@ public class UserInfoTalentsListDTOConverter {
         return dto;
     }
 
-    public static List<TalentsListDTO> userInfos2TalentsListDTOS(List<UserInfo> userInfos){
+    public static List<TalentsListDTO> userInfos2TalentsListDTOS(List<UserInfo> userInfos) {
         List<TalentsListDTO> dtos = new ArrayList<>();
         for (UserInfo info : userInfos) {
             dtos.add(userInfo2TalentsListDTO(info));

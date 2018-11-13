@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
 @Slf4j
 public class ProjectServiceImplTest extends ProjectApplicationTests {
 
@@ -76,19 +77,19 @@ public class ProjectServiceImplTest extends ProjectApplicationTests {
 
 
     @Test
-    public void findRelationByProjectId(){
+    public void findRelationByProjectId() {
         List<UserProjectRelation> result = service.findRelationByProjectId("1539259206662512790");
         Assert.assertNotNull(result);
     }
 
     @Test
-    public void findProjectsByUserId(){
+    public void findProjectsByUserId() {
         List<ProjectInfoOutput> list = service.findProjectsByUserId("222222");
         Assert.assertNotEquals(0, list.size());
     }
 
     @Test
-    public void getProjectList(){
+    public void getProjectList() {
         PageRequest page = PageRequest.of(0, 10);
 //        List<ProjectInfoVO> list = service.getProjectList(page);
 //        Assert.assertNotEquals(0, list.size());

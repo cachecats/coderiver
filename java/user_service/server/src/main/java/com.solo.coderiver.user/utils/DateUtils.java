@@ -62,6 +62,7 @@ public class DateUtils {
 
     /**
      * 时间格式化成字符串, 格式为 yyyy-MM-dd
+     *
      * @param date
      * @return
      * @throws ParseException
@@ -91,6 +92,7 @@ public class DateUtils {
 
     /**
      * 字符串解析成时间对象，格式为 yyyy-MM-dd
+     *
      * @param dateTimeString
      * @return
      * @throws ParseException
@@ -426,11 +428,12 @@ public class DateUtils {
 
     /**
      * 将 Time 类型转换为字符串
+     *
      * @param time
      * @return
      */
-    public static String timeFormat(Time time){
-        if (time == null){
+    public static String timeFormat(Time time) {
+        if (time == null) {
             return "";
         }
         return time.toString();
@@ -438,14 +441,15 @@ public class DateUtils {
 
     /**
      * 将字符串类型的时间转换为 Time
+     *
      * @param time
      * @return
      */
-    public static Time timeParse(String time){
+    public static Time timeParse(String time) {
         return Time.valueOf(time);
     }
 
-    private static void setTimeZone(SimpleDateFormat sdf){
+    private static void setTimeZone(SimpleDateFormat sdf) {
         sdf.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
     }
 

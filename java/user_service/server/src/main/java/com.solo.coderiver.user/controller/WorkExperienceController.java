@@ -31,8 +31,8 @@ public class WorkExperienceController {
 
     @PostMapping("/save")
     @ApiOperation("新增工作经历")
-    public ResultVO save(@Valid WorkExperienceDTO dto, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+    public ResultVO save(@Valid WorkExperienceDTO dto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             log.error("【新增工作经历】参数错误，dto={}", dto.toString());
             throw new UserException(ResultEnum.PARAMS_ERROR.getCode(), bindingResult.getFieldError().getDefaultMessage());
         }
@@ -44,8 +44,8 @@ public class WorkExperienceController {
     @GetMapping("/find/{id}")
     @ApiOperation("通过用户id查询工作经历，返回工作经历数组")
     @ApiImplicitParam(name = "id", value = "用户id", required = true)
-    public ResultVO findByUserId(@PathVariable("id") String id){
-        if (StringUtils.isEmpty(id)){
+    public ResultVO findByUserId(@PathVariable("id") String id) {
+        if (StringUtils.isEmpty(id)) {
             throw new UserException(ResultEnum.USER_ID_CANNOT_EMPTY);
         }
         List<WorkExperience> list = workService.findByUserId(id);
@@ -55,12 +55,12 @@ public class WorkExperienceController {
 
     @PostMapping("/update")
     @ApiOperation("修改工作经历")
-    public ResultVO update(@Valid WorkExperienceDTO dto, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+    public ResultVO update(@Valid WorkExperienceDTO dto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             log.error("【新增工作经历】参数错误，dto={}", dto.toString());
             throw new UserException(ResultEnum.PARAMS_ERROR.getCode(), bindingResult.getFieldError().getDefaultMessage());
         }
-        if (dto.getId() == null || StringUtils.isEmpty(String.valueOf(dto.getId()))){
+        if (dto.getId() == null || StringUtils.isEmpty(String.valueOf(dto.getId()))) {
             throw new UserException(ResultEnum.MAIN_ID_NOT_NULL);
         }
         WorkExperience entity = WorkExperienceConverter.dto2entity(dto);

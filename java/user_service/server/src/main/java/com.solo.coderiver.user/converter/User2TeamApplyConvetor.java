@@ -6,11 +6,10 @@ import org.springframework.beans.BeanUtils;
 
 /**
  * UserInfo 与 TeamApply 互转的工具类
- *
  */
 public class User2TeamApplyConvetor {
 
-    public static TeamApply user2TeamApply(UserInfo user){
+    public static TeamApply user2TeamApply(UserInfo user) {
         TeamApply teamApply = new TeamApply();
         //四个时间可以直接拷贝，其他的需要赋值
         BeanUtils.copyProperties(user, teamApply);

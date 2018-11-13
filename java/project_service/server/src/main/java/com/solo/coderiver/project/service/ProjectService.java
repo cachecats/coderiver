@@ -14,6 +14,7 @@ public interface ProjectService {
 
     /**
      * 通过项目 id 查询项目
+     *
      * @param projectId
      * @return
      */
@@ -21,12 +22,14 @@ public interface ProjectService {
 
     /**
      * 保存或更新项目
+     *
      * @param form
      */
     void saveProject(NewProjectForm form);
 
     /**
      * 保存或更新项目分类
+     *
      * @param category
      * @return
      */
@@ -34,6 +37,7 @@ public interface ProjectService {
 
     /**
      * 通过类别id查询类别
+     *
      * @param type
      * @return
      */
@@ -42,6 +46,7 @@ public interface ProjectService {
 
     /**
      * 通过项目id查询用户-项目对应关系
+     *
      * @param projectId
      * @return
      */
@@ -50,6 +55,7 @@ public interface ProjectService {
 
     /**
      * 通过用户id查询该用户参与的所有项目
+     *
      * @param userId
      * @return
      */
@@ -57,6 +63,7 @@ public interface ProjectService {
 
     /**
      * 获取全部项目列表（默认排序）
+     *
      * @param page 当前页
      * @param size 每页大小
      * @param sort 排序方式
@@ -66,6 +73,7 @@ public interface ProjectService {
 
     /**
      * 查询指定项目类型的项目列表
+     *
      * @param type 项目类型
      * @return
      */
@@ -73,6 +81,7 @@ public interface ProjectService {
 
     /**
      * 通过项目进度分页查询项目列表
+     *
      * @param progress
      * @return
      */
@@ -80,6 +89,7 @@ public interface ProjectService {
 
     /**
      * 通过项目类型和项目进度组合分页查询项目
+     *
      * @param type
      * @param progress
      * @return
@@ -88,6 +98,7 @@ public interface ProjectService {
 
     /**
      * 根据项目id获取项目详情
+     *
      * @param projectId
      * @return
      */

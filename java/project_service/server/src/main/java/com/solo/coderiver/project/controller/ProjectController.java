@@ -76,7 +76,7 @@ public class ProjectController {
 
     @GetMapping("/detail/{id}")
     @ApiOperation("获取项目详情")
-    public ResultVO getProjectDetails(@PathVariable("id") String projectId){
+    public ResultVO getProjectDetails(@PathVariable("id") String projectId) {
         ProjectDetailVO projectDetail = projectService.getProjectDetail(projectId);
         return ResultVOUtils.success(projectDetail);
     }

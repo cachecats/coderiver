@@ -9,6 +9,7 @@ public interface TeamService {
 
     /**
      * 保存团队信息
+     *
      * @param teamInfo
      * @return
      */
@@ -16,6 +17,7 @@ public interface TeamService {
 
     /**
      * 通过 teamid 查询团队信息
+     *
      * @param teamId
      * @return
      */
@@ -23,6 +25,7 @@ public interface TeamService {
 
     /**
      * 通过 teamid 集合查询多个团队信息
+     *
      * @param teamIds
      * @return
      */
@@ -30,6 +33,7 @@ public interface TeamService {
 
     /**
      * 保存组队申请
+     *
      * @param teamApply
      * @return
      */
@@ -37,6 +41,7 @@ public interface TeamService {
 
     /**
      * 通过项目创建者查询组队申请
+     *
      * @param projectCreatorId
      * @return
      */
@@ -44,6 +49,7 @@ public interface TeamService {
 
     /**
      * 通过申请者id查询组队申请
+     *
      * @param applicantsId
      * @return
      */

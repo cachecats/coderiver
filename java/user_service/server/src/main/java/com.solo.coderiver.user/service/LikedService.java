@@ -10,6 +10,7 @@ public interface LikedService {
 
     /**
      * 保存点赞记录
+     *
      * @param userLike
      * @return
      */
@@ -17,6 +18,7 @@ public interface LikedService {
 
     /**
      * 批量保存或修改
+     *
      * @param list
      */
     List<UserLike> saveAll(List<UserLike> list);
@@ -24,6 +26,7 @@ public interface LikedService {
 
     /**
      * 根据被点赞人的id查询点赞列表（即查询都谁给这个人点赞过）
+     *
      * @param likedUserId 被点赞人的id
      * @param pageable
      * @return
@@ -32,6 +35,7 @@ public interface LikedService {
 
     /**
      * 根据点赞人的id查询点赞列表（即查询这个人都给谁点赞过）
+     *
      * @param likedPostId
      * @param pageable
      * @return
@@ -40,6 +44,7 @@ public interface LikedService {
 
     /**
      * 通过被点赞人和点赞人id查询是否存在点赞记录
+     *
      * @param likedUserId
      * @param likedPostId
      * @return

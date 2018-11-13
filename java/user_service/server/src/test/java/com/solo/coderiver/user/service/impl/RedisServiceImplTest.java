@@ -27,15 +27,15 @@ public class RedisServiceImplTest extends UserApplicationTest {
     @Test
     public void saveLiked2Redis() {
         service.saveLiked2Redis("222222", "333333");
-        Integer value  = (Integer) redisTemplate.opsForHash().get(RedisKeyUtils.MAP_KEY_USER_LIKED,
+        Integer value = (Integer) redisTemplate.opsForHash().get(RedisKeyUtils.MAP_KEY_USER_LIKED,
                 RedisKeyUtils.getLikedKey("222222", "333333"));
         Assert.assertTrue(1 == value);
     }
 
     @Test
-    public void unlikeFromRedis(){
+    public void unlikeFromRedis() {
         service.unlikeFromRedis("222222", "333333");
-        Integer value  = (Integer) redisTemplate.opsForHash().get(RedisKeyUtils.MAP_KEY_USER_LIKED,
+        Integer value = (Integer) redisTemplate.opsForHash().get(RedisKeyUtils.MAP_KEY_USER_LIKED,
                 RedisKeyUtils.getLikedKey("222222", "333333"));
         Assert.assertTrue(0 == value);
     }
@@ -43,7 +43,7 @@ public class RedisServiceImplTest extends UserApplicationTest {
     @Test
     public void deleteLikedFromRedis() {
         service.deleteLikedFromRedis("222222", "333333");
-        Integer value  = (Integer) redisTemplate.opsForHash().get(RedisKeyUtils.MAP_KEY_USER_LIKED,
+        Integer value = (Integer) redisTemplate.opsForHash().get(RedisKeyUtils.MAP_KEY_USER_LIKED,
                 RedisKeyUtils.getLikedKey("222222", "333333"));
         Assert.assertTrue(1 != value);
     }
@@ -59,7 +59,7 @@ public class RedisServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void getLikedFromRedis(){
+    public void getLikedFromRedis() {
         List<UserLike> list = service.getLikedDataFromRedis();
         log.info(list.toString());
     }

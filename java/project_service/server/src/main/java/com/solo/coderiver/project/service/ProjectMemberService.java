@@ -8,6 +8,7 @@ public interface ProjectMemberService {
 
     /**
      * 通过项目id查看团队成员
+     *
      * @param projectId
      * @return
      */
@@ -15,6 +16,7 @@ public interface ProjectMemberService {
 
     /**
      * 保存项目成员列表
+     *
      * @param memberList
      * @return
      */

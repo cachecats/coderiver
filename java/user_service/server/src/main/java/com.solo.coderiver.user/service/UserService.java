@@ -11,6 +11,7 @@ public interface UserService {
 
     /**
      * 注册
+     *
      * @param userInfo
      * @return
      */
@@ -18,6 +19,7 @@ public interface UserService {
 
     /**
      * 更新个人信息
+     *
      * @param userInfo
      * @return
      */
@@ -25,6 +27,7 @@ public interface UserService {
 
     /**
      * 用邮箱登录
+     *
      * @param email
      * @param password
      * @return
@@ -33,6 +36,7 @@ public interface UserService {
 
     /**
      * 用电话登录
+     *
      * @param tel
      * @param password
      * @return
@@ -41,6 +45,7 @@ public interface UserService {
 
     /**
      * 通过id查询用户
+     *
      * @param id
      * @return
      */
@@ -48,25 +53,29 @@ public interface UserService {
 
     /**
      * 重置/修改 密码
+     *
      * @return
      */
     UserInfo resetPassword(String id, String oldPassword, String newPassword);
 
     /**
      * 查询所有用户信息
+     *
      * @return
      */
     List<UserInfo> findAll(Integer page, Integer size, Integer sort);
 
     /**
      * 通过角色筛选该角色下的所有用户
+     *
      * @param role 用户角色
      * @return
      */
-    List<UserInfo> findAllByRole(Integer page, Integer size, Integer sort,  Integer role);
+    List<UserInfo> findAllByRole(Integer page, Integer size, Integer sort, Integer role);
 
     /**
      * 通过经验筛选符合条件的用户
+     *
      * @param experience 用户经验
      * @return
      */
@@ -74,7 +83,8 @@ public interface UserService {
 
     /**
      * 通过角色和经验双重筛选符合条件的用户
-     * @param role 用户角色
+     *
+     * @param role       用户角色
      * @param experience 用户经验
      * @return
      */
@@ -82,6 +92,7 @@ public interface UserService {
 
     /**
      * 获取所有的角色信息
+     *
      * @return
      */
     List<RoleDTO> findAllRoles();

@@ -4,7 +4,7 @@ import com.solo.coderiver.user.dataobject.EducationExperience;
 
 import java.util.List;
 
-public interface EducationService{
+public interface EducationService {
 
     List<EducationExperience> findByUserId(String userId);
 

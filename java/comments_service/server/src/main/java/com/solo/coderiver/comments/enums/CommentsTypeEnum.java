@@ -9,8 +9,7 @@ import lombok.Getter;
 public enum CommentsTypeEnum {
     USER(1, "用户评论"),
     PROJECT(2, "项目评论"),
-    RESOURCE(3, "资源评论")
-    ;
+    RESOURCE(3, "资源评论");
 
     private Integer code;
 

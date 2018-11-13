@@ -24,7 +24,7 @@ public class WorkServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void save() throws Exception{
+    public void save() throws Exception {
         WorkExperience work = new WorkExperience();
         work.setUserId("111111");
         work.setPosition("前端工程师");

@@ -26,7 +26,7 @@ public class WorkServiceImpl implements WorkService {
     @Transactional
     public WorkExperience save(WorkExperience experience) {
         WorkExperience result = repository.save(experience);
-        if (result == null){
+        if (result == null) {
             throw new UserException(ResultEnum.SAVE_WORK_EXPERIENCE_FAIL);
         }
         return result;

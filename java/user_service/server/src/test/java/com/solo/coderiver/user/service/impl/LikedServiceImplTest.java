@@ -46,13 +46,13 @@ public class LikedServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void getByLikedUserIdAndLikedPostId(){
+    public void getByLikedUserIdAndLikedPostId() {
         UserLike userLike = service.getByLikedUserIdAndLikedPostId("222222", "333333");
         Assert.assertNotNull(userLike);
     }
 
     @Test
-    public void redisTest(){
+    public void redisTest() {
 //        Map<String, String> maps = new HashMap<>();
 //        maps.put("222222:444444", "444444");
 //        maps.put("333333:444444", "444444");
@@ -62,28 +62,28 @@ public class LikedServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void redisGetTest(){
+    public void redisGetTest() {
         Integer num = (Integer) redisTemplate.opsForHash().get("user-liked-count", "222222");
         log.info("num: {}", num);
     }
 
     @Test
-    public void redisDeleteTest(){
+    public void redisDeleteTest() {
         redisTemplate.opsForHash().delete("user-liked", "333333");
     }
 
     @Test
-    public void redisDecTest(){
+    public void redisDecTest() {
         redisTemplate.opsForHash().increment("user-liked-count", "222222", -1);
     }
 
     @Test
-    public void transformFromRedis2Database(){
+    public void transformFromRedis2Database() {
         service.transLikedFromRedis2DB();
     }
 
     @Test
-    public void transLikedCountFromRedis2DB(){
+    public void transLikedCountFromRedis2DB() {
         service.transLikedCountFromRedis2DB();
     }
 }

@@ -31,7 +31,7 @@ public class ClientController {
 
     @GetMapping("/get")
     @ApiOperation(value = "通过项目id查询该项目, 暴露给用户服务调用")
-    public ProjectInfoOutput findProjectByProjectId(@RequestParam("projectId") String projectId){
+    public ProjectInfoOutput findProjectByProjectId(@RequestParam("projectId") String projectId) {
         ProjectInfo projectInfo = projectService.findProjectByProjectId(projectId);
         ProjectInfoOutput output = new ProjectInfoOutput();
         BeanUtils.copyProperties(projectInfo, output);

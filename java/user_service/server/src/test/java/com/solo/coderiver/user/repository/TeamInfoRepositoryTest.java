@@ -15,7 +15,7 @@ public class TeamInfoRepositoryTest extends UserApplicationTest {
     TeamInfoRepository repository;
 
     @Test
-    public void save(){
+    public void save() {
         TeamInfo team = new TeamInfo();
         team.setTeamId(KeyUtils.genUniqueKey());
         team.setTeamAvatar("http://xxxx.png");

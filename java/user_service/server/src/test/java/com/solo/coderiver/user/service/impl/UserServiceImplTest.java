@@ -44,7 +44,7 @@ public class UserServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void resetPassword(){
+    public void resetPassword() {
         UserInfo userInfo = service.resetPassword("1538968406255385201", "123456", "123");
         Assert.assertNotNull(userInfo);
     }
@@ -58,7 +58,7 @@ public class UserServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void findAll(){
+    public void findAll() {
 //        List<UserInfo> all = service.findAll();
 //        Assert.assertNotEquals(0, all.size());
     }

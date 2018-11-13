@@ -11,7 +11,7 @@ import java.util.List;
 
 public class WorkExperienceConverter {
 
-    public static WorkExperienceDTO entity2dto(WorkExperience entity){
+    public static WorkExperienceDTO entity2dto(WorkExperience entity) {
         WorkExperienceDTO dto = new WorkExperienceDTO();
         BeanUtils.copyProperties(entity, dto);
         try {
@@ -23,7 +23,7 @@ public class WorkExperienceConverter {
         return dto;
     }
 
-    public static WorkExperience dto2entity(WorkExperienceDTO dto){
+    public static WorkExperience dto2entity(WorkExperienceDTO dto) {
         WorkExperience entity = new WorkExperience();
         BeanUtils.copyProperties(dto, entity);
         try {
@@ -35,7 +35,7 @@ public class WorkExperienceConverter {
         return entity;
     }
 
-    public static List<WorkExperienceDTO> entities2dtos(List<WorkExperience> entities){
+    public static List<WorkExperienceDTO> entities2dtos(List<WorkExperience> entities) {
         List<WorkExperienceDTO> dtos = new ArrayList<>();
         for (WorkExperience entity : entities) {
             dtos.add(entity2dto(entity));

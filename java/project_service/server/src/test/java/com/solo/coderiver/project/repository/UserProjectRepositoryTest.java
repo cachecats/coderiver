@@ -16,7 +16,7 @@ public class UserProjectRepositoryTest extends ProjectApplicationTests {
     UserProjectRepository repository;
 
     @Test
-    public void save(){
+    public void save() {
         UserProjectRelation relation = new UserProjectRelation("222222", "1539259206662512790");
         UserProjectRelation save = repository.save(relation);
         Assert.assertNotNull(save);

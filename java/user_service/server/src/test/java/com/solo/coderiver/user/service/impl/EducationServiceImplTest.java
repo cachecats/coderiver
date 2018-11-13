@@ -24,7 +24,7 @@ public class EducationServiceImplTest extends UserApplicationTest {
     }
 
     @Test
-    public void save() throws Exception{
+    public void save() throws Exception {
         EducationExperience experience = new EducationExperience();
         experience.setUserId("222222");
         experience.setSchoolName("南开");

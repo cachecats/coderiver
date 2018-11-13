@@ -39,7 +39,7 @@ public class UserInfoRepositoryTest extends UserApplicationTest {
     }
 
     @Test
-    public void update(){
+    public void update() {
         UserInfo user = repository.findUserInfoById("11111111");
         user.setSex(1);
         user.setRole(3);
@@ -53,32 +53,32 @@ public class UserInfoRepositoryTest extends UserApplicationTest {
     }
 
     @Test
-    public void findByEmail(){
+    public void findByEmail() {
         UserInfo info = repository.findUserInfoByEmail("abc@163.com");
         log.info(info.toString());
         Assert.assertNotNull(info);
     }
 
     @Test
-    public void findByRoleAndExperience(){
+    public void findByRoleAndExperience() {
 //        List<UserInfo> list = repository.findAllByRoleAndExperience(2, 2);
 //        Assert.assertNotEquals(0, list.size());
     }
 
     @Test
-    public void findByRole(){
+    public void findByRole() {
 //        List<UserInfo> list = repository.findAllByRole(2);
 //        Assert.assertNotEquals(0, list.size());
     }
 
     @Test
-    public void findByExperience(){
+    public void findByExperience() {
 //        List<UserInfo> list = repository.findAllByExperience(3);
 //        Assert.assertNotEquals(0, list.size());
     }
 
     @Test
-    public void findAll(){
+    public void findAll() {
 //        List<UserInfo> all = repository.findAll();
 //        Assert.assertNotEquals(0, all.size());
     }

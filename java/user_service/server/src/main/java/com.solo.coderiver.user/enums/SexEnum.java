@@ -6,7 +6,7 @@ import lombok.Getter;
  * 性别枚举类
  */
 @Getter
-public enum  SexEnum {
+public enum SexEnum {
 
     UNKNOW(0, "未知"),
     MALE(1, "男"),

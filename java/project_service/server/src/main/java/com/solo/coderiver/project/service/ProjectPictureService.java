@@ -11,6 +11,7 @@ public interface ProjectPictureService {
 
     /**
      * 保存多个 ProjectPicture 对象
+     *
      * @param pictureList
      * @return
      */
@@ -18,6 +19,7 @@ public interface ProjectPictureService {
 
     /**
      * 根据项目id查询该项目的所有截图
+     *
      * @param projectId
      * @return
      */

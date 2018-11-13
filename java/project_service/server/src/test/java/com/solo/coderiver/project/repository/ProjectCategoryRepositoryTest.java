@@ -14,7 +14,7 @@ public class ProjectCategoryRepositoryTest extends ProjectApplicationTests {
     ProjectCategoryRepository repository;
 
     @Test
-    public void save(){
+    public void save() {
         ProjectCategory category = new ProjectCategory();
         category.setCategoryName("电商");
         category.setCategoryType(1);

@@ -9,13 +9,14 @@ public class RoleUtils {
 
     /**
      * 根据角色码返回角色名
+     *
      * @param code
      * @return
      */
-    public static String getRoleNameByRoleCode(Integer code){
+    public static String getRoleNameByRoleCode(Integer code) {
         RoleEnum[] values = RoleEnum.values();
         for (RoleEnum role : values) {
-            if (role.getCode().equals(code)){
+            if (role.getCode().equals(code)) {
                 return role.getMsg();
             }
         }

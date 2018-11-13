@@ -15,8 +15,8 @@ public class ProjectInfoRepositoryTest extends ProjectApplicationTests {
     ProjectInfoRepository repository;
 
     @Test
-    public void save(){
-        ProjectInfo info  = new ProjectInfo();
+    public void save() {
+        ProjectInfo info = new ProjectInfo();
         info.setProjectId(KeyUtils.genUniqueKey());
         info.setProjectName("出埃及记");
         info.setCategoryType(1);

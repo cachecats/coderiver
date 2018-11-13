@@ -18,7 +18,7 @@ public class WorkExperienceRepositoryTest extends UserApplicationTest {
     WorkExperienceRepository repository;
 
     @Test
-    public void save() throws Exception{
+    public void save() throws Exception {
         WorkExperience work = new WorkExperience();
         work.setUserId("222222");
         work.setPosition("移动开发工程师");

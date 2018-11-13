@@ -17,14 +17,14 @@ public class ProjectPictureRepositoryTest extends ProjectApplicationTests {
     ProjectPictureRepository repository;
 
     @Test
-    public void save(){
+    public void save() {
         ProjectPicture picture = new ProjectPicture("1539259206662512790", "http://hahhaha.png");
         ProjectPicture save = repository.save(picture);
         Assert.assertNotNull(save);
     }
 
     @Test
-    public void saveAll(){
+    public void saveAll() {
         List<ProjectPicture> list = Arrays.asList(
                 new ProjectPicture("1540980841377681170", "1.png"),
                 new ProjectPicture("1540980841377681170", "2.png")

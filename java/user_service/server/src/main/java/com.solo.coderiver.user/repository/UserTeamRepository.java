@@ -9,6 +9,7 @@ public interface UserTeamRepository extends JpaRepository<UserTeamRelation, Inte
 
     /**
      * 通过用户id查询对应关系
+     *
      * @param userId
      * @return
      */
@@ -16,6 +17,7 @@ public interface UserTeamRepository extends JpaRepository<UserTeamRelation, Inte
 
     /**
      * 通过团队id查询对应关系
+     *
      * @param teamId
      * @return
      */

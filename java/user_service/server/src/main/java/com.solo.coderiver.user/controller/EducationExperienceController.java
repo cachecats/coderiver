@@ -31,7 +31,7 @@ public class EducationExperienceController {
 
     @PostMapping("/save")
     @ApiOperation("保存教育经历")
-    public ResultVO save(@Valid EducationExperienceDTO dto, BindingResult bindingResult){
+    public ResultVO save(@Valid EducationExperienceDTO dto, BindingResult bindingResult) {
         //校验不通过
         if (bindingResult.hasErrors()) {
             log.error("【保存教育经历】参数错误，dto=${}", dto.toString());
@@ -45,8 +45,8 @@ public class EducationExperienceController {
     @GetMapping("/find/{id}")
     @ApiOperation("通过用户id查询教育经历")
     @ApiImplicitParam(name = "id", value = "用户id")
-    public ResultVO findByUserId(@PathVariable("id") String id){
-        if (StringUtils.isEmpty(id)){
+    public ResultVO findByUserId(@PathVariable("id") String id) {
+        if (StringUtils.isEmpty(id)) {
             throw new UserException(ResultEnum.USER_ID_CANNOT_EMPTY);
         }
         List<EducationExperience> list = educationService.findByUserId(id);
@@ -57,12 +57,12 @@ public class EducationExperienceController {
 
     @PostMapping("/update")
     @ApiOperation("更新教育经历")
-    public ResultVO update(@Valid EducationExperienceDTO dto, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
+    public ResultVO update(@Valid EducationExperienceDTO dto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             log.error("【更新教育经历】参数错误，dto=${}", dto.toString());
             throw new UserException(ResultEnum.PARAMS_ERROR.getCode(), bindingResult.getFieldError().getDefaultMessage());
         }
-        if (dto.getId() == null || StringUtils.isEmpty(String.valueOf(dto.getId()))){
+        if (dto.getId() == null || StringUtils.isEmpty(String.valueOf(dto.getId()))) {
             throw new UserException(ResultEnum.MAIN_ID_NOT_NULL);
         }
         EducationExperience experience = EducationExperienceConverter.dto2entity(dto);

@@ -11,12 +11,12 @@ public class QuartzConfig {
     private static final String LIKE_TASK_IDENTITY = "LikeTaskQuartz";
 
     @Bean
-    public JobDetail quartzDetail(){
+    public JobDetail quartzDetail() {
         return JobBuilder.newJob(LikeTask.class).withIdentity(LIKE_TASK_IDENTITY).storeDurably().build();
     }
 
     @Bean
-    public Trigger quartzTrigger(){
+    public Trigger quartzTrigger() {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
 //                .withIntervalInSeconds(10)  //设置时间周期单位秒
                 .withIntervalInHours(2)  //两个小时执行一次

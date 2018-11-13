@@ -63,10 +63,10 @@ public class LikedServiceImpl implements LikedService {
         List<UserLike> list = redisService.getLikedDataFromRedis();
         for (UserLike like : list) {
             UserLike ul = getByLikedUserIdAndLikedPostId(like.getLikedUserId(), like.getLikedPostId());
-            if (ul == null){
+            if (ul == null) {
                 //没有记录，直接存入
                 save(like);
-            }else{
+            } else {
                 //有记录，需要更新
                 ul.setStatus(like.getStatus());
                 save(ul);
@@ -81,7 +81,7 @@ public class LikedServiceImpl implements LikedService {
         for (LikedCountDTO dto : list) {
             UserInfo user = userService.findById(dto.getId());
             //点赞数量属于无关紧要的操作，出错无需抛异常
-            if (user != null){
+            if (user != null) {
                 Integer likeNum = user.getLikeNum() + dto.getCount();
                 user.setLikeNum(likeNum);
                 //更新点赞数量

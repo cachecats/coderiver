@@ -27,7 +27,7 @@ public class EducationServiceImpl implements EducationService {
     @Transactional
     public EducationExperience save(EducationExperience experience) {
         EducationExperience result = repository.save(experience);
-        if (result == null){
+        if (result == null) {
             throw new UserException(ResultEnum.SAVE_EDUCATION_EXPERIENCE_FAIL);
         }
         return result;

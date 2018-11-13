@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class EducationExperienceConverter {
 
-    public static EducationExperience dto2entity(EducationExperienceDTO dto){
+    public static EducationExperience dto2entity(EducationExperienceDTO dto) {
         EducationExperience entity = new EducationExperience();
         BeanUtils.copyProperties(dto, entity);
         try {
@@ -26,7 +26,7 @@ public class EducationExperienceConverter {
         return entity;
     }
 
-    public static EducationExperienceDTO entity2dto(EducationExperience entity){
+    public static EducationExperienceDTO entity2dto(EducationExperience entity) {
         EducationExperienceDTO dto = new EducationExperienceDTO();
         BeanUtils.copyProperties(entity, dto);
         try {
@@ -38,7 +38,7 @@ public class EducationExperienceConverter {
         return dto;
     }
 
-    public static List<EducationExperienceDTO> entities2dtos(List<EducationExperience> entities){
+    public static List<EducationExperienceDTO> entities2dtos(List<EducationExperience> entities) {
         List<EducationExperienceDTO> list = new ArrayList<>();
         for (EducationExperience entity : entities) {
             list.add(entity2dto(entity));

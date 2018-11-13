@@ -18,7 +18,7 @@ public class EducationExperienceRepositoryTest extends UserApplicationTest {
     EducationExperienceRepository repository;
 
     @Test
-    public void save() throws Exception{
+    public void save() throws Exception {
         EducationExperience experience = new EducationExperience();
         experience.setId(3);
         experience.setUserId("11111111");
@@ -37,7 +37,7 @@ public class EducationExperienceRepositoryTest extends UserApplicationTest {
     }
 
     @Test
-    public void findByUserId(){
+    public void findByUserId() {
         List<EducationExperience> list = repository.findByUserId("222222");
         Assert.assertNotEquals(0, list.size());
     }

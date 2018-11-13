@@ -16,7 +16,7 @@ public class TeamApplyRepositoryTest extends UserApplicationTest {
     TeamApplyRepository repository;
 
     @Test
-    public void save(){
+    public void save() {
         TeamApply teamApply = new TeamApply();
         teamApply.setProjectId("1539259206662512790");
         teamApply.setProjectCreatorId("222222");
