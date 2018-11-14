@@ -1,8 +1,10 @@
 package com.solo.coderiver.api_gateway.filter;
 
+import com.google.gson.Gson;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import com.solo.coderiver.api_gateway.VO.ResultVO;
 import com.solo.coderiver.api_gateway.consts.RedisConsts;
 import com.solo.coderiver.api_gateway.utils.CookieUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -63,20 +65,52 @@ public class AuthFilter extends ZuulFilter {
 
         //通过工具类从 Cookie 中取出 token
         Cookie tokenCookie = CookieUtils.getCookieByName(request, "token");
-        if (tokenCookie == null){
-            requestContext.setSendZuulResponse(false);
-            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
-            requestContext.setResponseBody("{errorMsg: invalid token}");
-        }else{
-            String token = tokenCookie.getValue();
-            //没有取到token，token为空，Redis里没找到token对应的键，都报没权限
-            if (token == null || StringUtils.isEmpty(token) ||
-                    StringUtils.isEmpty(stringRedisTemplate.opsForValue().get(String.format(RedisConsts.TOKEN_TEMPLATE, token)))){
-                requestContext.setSendZuulResponse(false);
-                requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
-            }
+        if (tokenCookie == null || StringUtils.isEmpty(tokenCookie.getValue()) || !verifyToken(tokenCookie.getValue())) {
+            readTokenFromHeader(requestContext, request);
         }
 
         return null;
+    }
+
+    /**
+     * 从 header 中读取 token 并校验
+     *
+     * @param requestContext
+     */
+    private void readTokenFromHeader(RequestContext requestContext, HttpServletRequest request) {
+        //先从 header 中读取，读到 cookie 则校验并跳过读 cookie
+        String headerToken = request.getHeader("token");
+        if (StringUtils.isEmpty(headerToken) || !verifyToken(headerToken)) {
+            setUnauthorizedResponse(requestContext);
+        }
+    }
+
+    /**
+     * 从Redis中校验token
+     *
+     * @param token
+     * @return
+     */
+    private boolean verifyToken(String token) {
+        String result = stringRedisTemplate.opsForValue().get(String.format(RedisConsts.TOKEN_TEMPLATE, token));
+        return !StringUtils.isEmpty(result);
+    }
+
+    /**
+     * 设置 403 无权限状态
+     *
+     * @param requestContext
+     */
+    private void setUnauthorizedResponse(RequestContext requestContext) {
+        requestContext.setSendZuulResponse(false);
+        requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+
+        ResultVO vo = new ResultVO();
+        vo.setCode(401);
+        vo.setMsg("invalid token");
+        Gson gson = new Gson();
+        String result = gson.toJson(vo);
+
+        requestContext.setResponseBody(result);
     }
 }

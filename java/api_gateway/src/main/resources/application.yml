@@ -10,10 +10,14 @@ eureka:
 server:
   port: 8084
 
-zuul:
-  routes:
-    myproject:
-      path: /myproject/**
-      serviceId: project
+#zuul:
+#  routes:
+#    myproject:
+#      path: /myproject/**
+#      serviceId: project
     #简洁写法
 #    project: /myproject/**
+
+  # 设置全局敏感头
+zuul:
+  sensitive-headers:
