@@ -21,20 +21,11 @@ public class UserInfoVO {
     //性别。0未知 1男 2女
     private Integer sex = SexEnum.UNKNOW.getCode();
 
-    //电话
-    private String tel;
-
     //邮箱
     private String email;
 
     //头像
     private String avatar;
-
-    //微信的 openid
-    private String openid;
-
-    //qq的 id
-    private String qqId;
 
     //用户角色。0未知
     private Integer role = RoleEnum.UNKNOW.getCode();
@@ -63,7 +54,8 @@ public class UserInfoVO {
     //影响力
     private Integer influence;
 
-    private Integer like;
+    //点赞的数量
+    private Integer likeNum;
 
     //个人简介
     private String introduce;

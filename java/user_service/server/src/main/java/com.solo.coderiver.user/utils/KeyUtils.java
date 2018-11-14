@@ -9,9 +9,10 @@ public class KeyUtils {
      *
      * @return
      */
-    public static synchronized String genUniqueKey() {
+    public static synchronized String genUniqueKey(){
         Random random = new Random();
         int number = random.nextInt(900000) + 100000;
-        return System.currentTimeMillis() + String.valueOf(number);
+        String key = System.currentTimeMillis() + String.valueOf(number);
+        return MD5Utils.getMd5(key);
     }
 }

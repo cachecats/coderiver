@@ -1,5 +1,6 @@
 package com.solo.coderiver.user.service.impl;
 
+import com.solo.coderiver.user.consts.RedisConsts;
 import com.solo.coderiver.user.dataobject.UserInfo;
 import com.solo.coderiver.user.dto.RoleDTO;
 import com.solo.coderiver.user.dto.TalentsListDTO;
@@ -11,11 +12,15 @@ import com.solo.coderiver.user.exception.UserException;
 import com.solo.coderiver.user.repository.UserInfoRepository;
 import com.solo.coderiver.user.service.UserService;
 import com.solo.coderiver.user.utils.KeyUtils;
+import com.solo.coderiver.user.utils.MD5Utils;
+import com.solo.coderiver.user.utils.RedisUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -23,12 +28,20 @@ import org.springframework.util.StringUtils;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserInfoRepository userRepository;
+
+    @Autowired
+    RedisUtils redisUtils;
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
 
     @Override
     @Transactional
@@ -78,13 +91,15 @@ public class UserServiceImpl implements UserService {
             throw new UserException(ResultEnum.PASSWORD_ERROR);
         }
 
-        //生成 token 并保存在数据库中
+        //生成 token 并保存在 Redis 中
         String token = KeyUtils.genUniqueKey();
-        user.setToken(token);
-        UserInfo userInfo = updateInfo(user);
+        //将token存储在 Redis 中。键是 TOKEN_用户id, 值是token
+        redisUtils.setString(String.format(RedisConsts.TOKEN_TEMPLATE, user.getId()), token, 2l, TimeUnit.HOURS);
 
         UserInfoDTO dto = new UserInfoDTO();
-        BeanUtils.copyProperties(userInfo, dto);
+        BeanUtils.copyProperties(user, dto);
+        dto.setToken(token);
+
         return dto;
     }
 
