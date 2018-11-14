@@ -129,7 +129,7 @@ public class AuthFilter extends ZuulFilter {
 
 
     /**
-     * 设置 403 无权限状态
+     * 设置 401 无权限状态
      *
      * @param requestContext
      */

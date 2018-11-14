@@ -6,8 +6,6 @@ public class KeyUtils {
 
     /**
      * 产生独一无二的key
-     *
-     * @return
      */
     public static synchronized String genUniqueKey(){
         Random random = new Random();
