@@ -31,8 +31,8 @@ public class AuthFilter extends ZuulFilter {
     StringRedisTemplate stringRedisTemplate;
 
 
-    private static final String LOGIN_URI = "/user/login";
-    private static final String REGISTER_URI = "/user/register";
+    private static final String LOGIN_URI = "/user/user/login";
+    private static final String REGISTER_URI = "/user/user/register";
 
     @Override
     public String filterType() {
@@ -63,6 +63,7 @@ public class AuthFilter extends ZuulFilter {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
 
+        //先从 cookie 中取 token，cookie 中取失败再从 header 中取，两重校验
         //通过工具类从 Cookie 中取出 token
         Cookie tokenCookie = CookieUtils.getCookieByName(request, "token");
         if (tokenCookie == null || StringUtils.isEmpty(tokenCookie.getValue()) || !verifyToken(tokenCookie.getValue())) {
