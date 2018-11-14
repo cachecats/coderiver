@@ -1,4 +1,4 @@
-package com.solo.coderiver.api_gateway;
+package com.solo.coderiver.gateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

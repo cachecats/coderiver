@@ -1,12 +1,12 @@
-package com.solo.coderiver.api_gateway.filter;
+package com.solo.coderiver.gateway.filter;
 
 import com.google.gson.Gson;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import com.solo.coderiver.api_gateway.VO.ResultVO;
-import com.solo.coderiver.api_gateway.consts.RedisConsts;
-import com.solo.coderiver.api_gateway.utils.CookieUtils;
+import com.solo.coderiver.gateway.VO.ResultVO;
+import com.solo.coderiver.gateway.consts.RedisConsts;
+import com.solo.coderiver.gateway.utils.CookieUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

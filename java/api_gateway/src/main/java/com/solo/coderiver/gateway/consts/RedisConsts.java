@@ -1,4 +1,4 @@
-package com.solo.coderiver.api_gateway.consts;
+package com.solo.coderiver.gateway.consts;
 
 public interface RedisConsts {
 

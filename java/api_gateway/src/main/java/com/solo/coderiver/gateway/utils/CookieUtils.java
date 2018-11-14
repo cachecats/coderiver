@@ -1,4 +1,4 @@
-package com.solo.coderiver.api_gateway.utils;
+package com.solo.coderiver.gateway.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

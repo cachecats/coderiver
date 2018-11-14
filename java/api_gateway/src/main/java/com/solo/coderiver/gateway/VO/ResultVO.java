@@ -1,4 +1,4 @@
-package com.solo.coderiver.api_gateway.VO;
+package com.solo.coderiver.gateway.VO;
 
 import lombok.Data;
 
