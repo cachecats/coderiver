@@ -29,6 +29,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR1</spring-cloud.version>
         <comments-common.version>0.0.1-SNAPSHOT</comments-common.version>
+        <user-client.version>0.0.1-SNAPSHOT</user-client.version>
     </properties>
 
     <dependencyManagement>
@@ -44,6 +45,11 @@
                 <groupId>com.solo.coderiver</groupId>
                 <artifactId>comments-common</artifactId>
                 <version>${comments-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.solo.coderiver</groupId>
+                <artifactId>user-client</artifactId>
+                <version>${user-client.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

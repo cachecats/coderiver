@@ -5,18 +5,24 @@ import com.solo.coderiver.comments.dataobject.CommentsInfo;
 import com.solo.coderiver.comments.dto.CommentsInfoDTO;
 import com.solo.coderiver.comments.repository.CommentsInfoRepository;
 import com.solo.coderiver.comments.service.CommentsInfoService;
+import com.solo.coderiver.user.client.UserClient;
+import com.solo.coderiver.user.common.UserInfoForComments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CommentsInfoServiceImpl implements CommentsInfoService {
 
     @Autowired
     CommentsInfoRepository repository;
+
+    @Autowired
+    UserClient userClient;
 
     @Override
     public CommentsInfoDTO save(CommentsInfoDTO dto) {
@@ -27,8 +33,26 @@ public class CommentsInfoServiceImpl implements CommentsInfoService {
     @Override
     public List<CommentsInfoDTO> findByOwnerId(String ownerId) {
         List<CommentsInfo> infoList = repository.findByOwnerId(ownerId);
-        List<CommentsInfoDTO> dtos = CommentsConverter.infos2DTOList(infoList);
-        return sortData(dtos);
+        List<CommentsInfoDTO> list = CommentsConverter.infos2DTOList(infoList)
+                .stream()
+                .map(dto -> {
+                    //从用户服务取评论者头像
+                    UserInfoForComments fromUser = userClient.getAvatarByUserId(dto.getFromId());
+                    if (fromUser != null) {
+                        dto.setFromAvatar(fromUser.getAvatar());
+                    }
+
+                    //从用户服务取被评论者头像
+                    String toId = dto.getToId();
+                    if (!StringUtils.isEmpty(toId)) {
+                        UserInfoForComments toUser = userClient.getAvatarByUserId(toId);
+                        if (toUser != null) {
+                            dto.setToAvatar(toUser.getAvatar());
+                        }
+                    }
+                    return dto;
+                }).collect(Collectors.toList());
+        return sortData(list);
     }
 
     /**

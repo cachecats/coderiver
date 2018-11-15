@@ -29,11 +29,17 @@ public class CommentsInfoDTO implements Serializable {
     //评论者名字
     private String fromName;
 
+    //评论者头像
+    private String fromAvatar;
+
     //被评论者id
     private String toId;
 
     //被评论者名字
     private String toName;
+
+    //被评论者头像
+    private String toAvatar;
 
     //获得点赞的数量
     private Integer likeNum;

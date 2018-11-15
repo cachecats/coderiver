@@ -12,8 +12,8 @@ spring:
   jpa:
     show-sql: true
   # 如果字段值为null则不返回
-  jackson:
-    default-property-inclusion: non_null
+#  jackson:
+#    default-property-inclusion: non_null
 
   application:
     name: comments

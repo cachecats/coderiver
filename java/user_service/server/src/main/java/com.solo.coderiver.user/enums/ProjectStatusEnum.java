@@ -1,6 +1,5 @@
 package com.solo.coderiver.user.enums;
 
-import com.sun.tools.corba.se.idl.InterfaceGen;
 import lombok.Getter;
 
 /**
