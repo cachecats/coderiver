@@ -37,7 +37,7 @@ coderiver河码 类似程序员客栈，但主要目的是方便各细分领域�
 
 同时也会将关键功能的实现总结到博客里，方便大家学习，欢迎大家关注~
 
-博客地址：https://juejin.im/user/5b06d578f265da0de02f3b0c
+博客地址：https://juejin.im/user/5b06d578f265da0de02f3b0c/posts
 
 ## 目录说明
 
