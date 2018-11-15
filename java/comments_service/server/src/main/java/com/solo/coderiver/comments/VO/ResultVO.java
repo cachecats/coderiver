@@ -2,9 +2,12 @@ package com.solo.coderiver.comments.VO;
 
 import lombok.Data;
 
-@Data
-public class ResultVO<T> {
+import java.io.Serializable;
 
+@Data
+public class ResultVO<T> implements Serializable{
+
+    private static final long serialVersionUID = 2452805050489880093L;
     /**
      * 返回码
      */

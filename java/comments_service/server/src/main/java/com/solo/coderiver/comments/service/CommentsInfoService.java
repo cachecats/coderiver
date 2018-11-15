@@ -1,6 +1,7 @@
 package com.solo.coderiver.comments.service;
 
 import com.solo.coderiver.comments.dataobject.CommentsInfo;
+import com.solo.coderiver.comments.dto.CommentsInfoDTO;
 
 import java.util.List;
 
@@ -12,13 +13,13 @@ public interface CommentsInfoService {
      * @param info
      * @return
      */
-    CommentsInfo save(CommentsInfo info);
+    CommentsInfoDTO save(CommentsInfoDTO info);
 
     /**
-     * 根据被评论者的id查询评论列表
+     * 根据被评论的资源id查询评论列表
      *
      * @param ownerId
      * @return
      */
-    List<CommentsInfo> findByOwnerId(String ownerId);
+    List<CommentsInfoDTO> findByOwnerId(String ownerId);
 }

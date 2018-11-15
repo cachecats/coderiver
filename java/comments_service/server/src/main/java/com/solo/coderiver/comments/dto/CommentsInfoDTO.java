@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class CommentsInfoDTO implements Serializable {
@@ -13,11 +14,14 @@ public class CommentsInfoDTO implements Serializable {
     //评论主键id
     private String id;
 
+    //该条评论的父评论id
+    private String pid;
+
+    //评论的资源id。标记这条评论是属于哪个资源的。资源可以是人、项目、设计资源
+    private String ownerId;
+
     //评论类型。1用户评论，2项目评论，3资源评论
     private Integer type;
-
-    //被评论者的id
-    private String ownerId;
 
     //评论者id
     private String fromId;
@@ -25,8 +29,11 @@ public class CommentsInfoDTO implements Serializable {
     //评论者名字
     private String fromName;
 
-    //评论者头像
-    private String fromAvatar;
+    //被评论者id
+    private String toId;
+
+    //被评论者名字
+    private String toName;
 
     //获得点赞的数量
     private Integer likeNum;
@@ -39,5 +46,7 @@ public class CommentsInfoDTO implements Serializable {
 
     //更新时间
     private Date updateTime;
+
+    private List<CommentsInfoDTO> children;
 
 }

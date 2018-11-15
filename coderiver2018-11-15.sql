@@ -182,34 +182,21 @@ create table `user_like`(
 ) comment '用户点赞表';
 
 
+drop table if exists `comments_info`;
 create table `comments_info`(
 	`id` varchar(32) not null comment '评论主键id',
+	`pid` varchar(32) default '' comment '父评论id',
+	`owner_id` varchar(32) not null comment '被评论的资源id，可以是人、项目、资源',
 	`type` tinyint(1) not null comment '评论类型：对人评论，对项目评论，对资源评论',
-	`owner_id` varchar(32) not null comment '被评论者id，可以是人、项目、资源',
 	`from_id` varchar(32) not null comment '评论者id',
 	`from_name` varchar(32) not null comment '评论者名字',
-	`from_avatar` varchar(512) default '' comment '评论者头像',
+	`to_id` varchar(32) default '' comment '被评论者id',
+	`to_name` varchar(32) default '' comment '被评论者名字',
 	`like_num` int default '0' comment '点赞的数量',
 	`content` varchar(512) comment '评论内容',
 	`create_time` timestamp not null default current_timestamp comment '创建时间',
   `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
 	primary key(`id`)
 ) comment '评论主表';
-
-
-create table `comments_reply`(
-	`id` int not null auto_increment,
-	`comment_id` varchar(32) not null comment '评论主表id',
-	`from_id` varchar(32) not null comment '评论者id',
-	`from_name` varchar(32) not null comment '评论者名字',
-	`from_avatar` varchar(512) default '' comment '评论者头像',
-	`to_id` varchar(32) not null comment '被评论者id',
-	`to_name` varchar(32) not null comment '被评论者名字',
-	`to_avatar` varchar(512) default '' comment '被评论者头像',
-	`content` varchar(512) comment '评论内容',
-	`create_time` timestamp not null default current_timestamp comment '创建时间',
-  `update_time` timestamp not null default current_timestamp on update current_timestamp comment '修改时间',
-	primary key(`id`)
-) comment '评论回复表';
 
 
