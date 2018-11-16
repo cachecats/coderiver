@@ -73,6 +73,8 @@ coderiver河码 类似程序员客栈，但主要目的是方便各细分领域�
 
 [服务网关 Zuul 与 Redis 结合实现 Token 权限校验](https://juejin.im/post/5bec39206fb9a049e062e4a0)
 
+[评论模块优化 - 数据表优化、添加缓存及用 Feign 与用户服务通信](https://juejin.im/post/5beea202e51d451f5b54cdc4)
+
 ### Vue pc端
 
 [vue + element-ui + scss 仿简书评论模块](https://juejin.im/post/5b41fb58f265da0f6d72b917)
