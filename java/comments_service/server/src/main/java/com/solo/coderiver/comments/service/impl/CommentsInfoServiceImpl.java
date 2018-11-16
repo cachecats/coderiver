@@ -7,7 +7,11 @@ import com.solo.coderiver.comments.repository.CommentsInfoRepository;
 import com.solo.coderiver.comments.service.CommentsInfoService;
 import com.solo.coderiver.user.client.UserClient;
 import com.solo.coderiver.user.common.UserInfoForComments;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -16,6 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class CommentsInfoServiceImpl implements CommentsInfoService {
 
     @Autowired
@@ -25,13 +30,16 @@ public class CommentsInfoServiceImpl implements CommentsInfoService {
     UserClient userClient;
 
     @Override
+    @CacheEvict(cacheNames = "comments", key = "#dto.ownerId")
     public CommentsInfoDTO save(CommentsInfoDTO dto) {
         CommentsInfo result = repository.save(CommentsConverter.DTO2Info(dto));
         return CommentsConverter.info2DTO(result);
     }
 
     @Override
+    @Cacheable(cacheNames = "comments", key = "#ownerId")
     public List<CommentsInfoDTO> findByOwnerId(String ownerId) {
+        log.info("取了数据库----------");
         List<CommentsInfo> infoList = repository.findByOwnerId(ownerId);
         List<CommentsInfoDTO> list = CommentsConverter.infos2DTOList(infoList)
                 .stream()

@@ -1,6 +1,5 @@
 package com.solo.coderiver.comments.service;
 
-import com.solo.coderiver.comments.dataobject.CommentsInfo;
 import com.solo.coderiver.comments.dto.CommentsInfoDTO;
 
 import java.util.List;
