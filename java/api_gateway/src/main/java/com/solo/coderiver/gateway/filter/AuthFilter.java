@@ -36,8 +36,8 @@ public class AuthFilter extends ZuulFilter {
     StringRedisTemplate stringRedisTemplate;
 
     //排除过滤的 uri 地址
-    private static final String LOGIN_URI = "/user/user/login";
-    private static final String REGISTER_URI = "/user/user/register";
+    private static final String LOGIN_URI = "/user/login";
+    private static final String REGISTER_URI = "/user/register";
 
     //无权限时的提示语
     private static final String INVALID_TOKEN = "invalid token";

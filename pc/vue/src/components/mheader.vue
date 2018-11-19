@@ -69,6 +69,10 @@
 </template>
 
 <script>
+
+  import {Message} from 'element-ui'
+  import CookieUtils from '../utils/CookieUtils'
+
   export default {
     name: "mheader",
     data() {
@@ -113,7 +117,7 @@
       }
     },
     computed: {
-      isHome(){
+      isHome() {
         return this.$store.state.isHome
       }
     },
@@ -123,7 +127,6 @@
        */
       login() {
         this.dialogVisible = true
-        // this.$router.replace({name: 'home'})
       },
 
       /**
@@ -140,13 +143,27 @@
         this.pwdError = false;
         this.$refs.form.validate((valid) => {
           if (valid) {
-            if (this.form.emailTel === 'admin' && this.form.password === '123') {
-              this.isLogin = true
+            let params = {
+              email: this.form.emailTel,
+              password: this.form.password
+            };
+            this.$api.login(params).then(res => {
+              console.log("login---", res);
+              let userInfo = res.data;
+              // 存入 vuex 中
+              this.$store.commit("setUserInfo", userInfo);
+              //将 userId 和 token 写入 cookie
+              CookieUtils.setCookie("userId", userInfo.id);
+              CookieUtils.setCookie("token", userInfo.token);
+
+              this.isLogin = true;
               this.dialogVisible = false
-            } else {
+            }).catch(err => {
+              console.log("err---", err);
+              Message.error(err.data.msg);
               this.pwdError = true;
               return false
-            }
+            })
           }
         })
       },
@@ -154,10 +171,10 @@
       /**
        * 点击下拉列表的某一项
        */
-      clickDropItem(index){
+      clickDropItem(index) {
         //隐藏 popover
         this.popoverVisible = false;
-        switch (index){
+        switch (index) {
           case 0:
             console.log("我的主页");
             this.$router.push({name: 'talents_detail'});
@@ -175,13 +192,13 @@
       /**
        * 点击马上注册按钮
        */
-      goToRegister(){
+      goToRegister() {
         this.dialogVisible = false;
         this.$router.push({name: 'register'})
       },
 
       //新建项目
-      createProject(){
+      createProject() {
         this.$router.push({name: "newproject", params: {}})
       }
 
@@ -209,7 +226,7 @@
     width: 100%;
     height: 80px;
     background-color: $header-bg-color;
-    &.is-home{
+    &.is-home {
       background-color: transparent;
     }
     .side {
@@ -245,7 +262,7 @@
             border-bottom: 4px solid $color-main;
             color: $color-main;
           }
-          &.normal{
+          &.normal {
             color: #fff;
             &:hover, &.router-link-exact-active {
               border-bottom: none;
@@ -257,7 +274,7 @@
         display: flex;
         height: 100%;
         align-items: center;
-        .create{
+        .create {
           margin-right: 20px;
         }
         .unlogin {
@@ -276,7 +293,7 @@
               cursor: pointer;
               color: $color-main;
             }
-            &.normal{
+            &.normal {
               color: #fff;
               &:hover, &.router-link-exact-active {
                 border-bottom: none;
@@ -295,7 +312,7 @@
             font-size: 16px;
             color: #333;
             cursor: pointer;
-            &.normal{
+            &.normal {
               color: #fff;
             }
           }
@@ -303,6 +320,7 @@
       }
     }
   }
+
   .dialog-wrapper {
     display: flex;
     flex-direction: column;

@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     isHome: true,
-    network: true
+    network: true,
+    userInfo: {}
   },
   mutations: {
     changeHomeState(state, flag){
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     changeNetwork(state, flag){
       state.network = flag
+    },
+    setUserInfo(state, userInfo){
+      state.userInfo = userInfo
     }
   },
   actions: {}

@@ -32,9 +32,9 @@ spring:
     timeout: 5000ms
 
 #设置全局请求路径前缀
-server:
-  servlet:
-    context-path: /user
+#server:
+#  servlet:
+#    context-path: /user
 
 
 

@@ -3,7 +3,6 @@ package com.solo.coderiver.user.service.impl;
 import com.solo.coderiver.user.consts.RedisConsts;
 import com.solo.coderiver.user.dataobject.UserInfo;
 import com.solo.coderiver.user.dto.RoleDTO;
-import com.solo.coderiver.user.dto.TalentsListDTO;
 import com.solo.coderiver.user.dto.UserInfoDTO;
 import com.solo.coderiver.user.enums.ResultEnum;
 import com.solo.coderiver.user.enums.RoleEnum;
@@ -12,7 +11,6 @@ import com.solo.coderiver.user.exception.UserException;
 import com.solo.coderiver.user.repository.UserInfoRepository;
 import com.solo.coderiver.user.service.UserService;
 import com.solo.coderiver.user.utils.KeyUtils;
-import com.solo.coderiver.user.utils.MD5Utils;
 import com.solo.coderiver.user.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -26,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
