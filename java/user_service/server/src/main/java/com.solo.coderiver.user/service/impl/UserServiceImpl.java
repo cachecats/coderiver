@@ -2,8 +2,10 @@ package com.solo.coderiver.user.service.impl;
 
 import com.solo.coderiver.user.consts.RedisConsts;
 import com.solo.coderiver.user.dataobject.UserInfo;
+import com.solo.coderiver.user.dto.ExperienceDTO;
 import com.solo.coderiver.user.dto.RoleDTO;
 import com.solo.coderiver.user.dto.UserInfoDTO;
+import com.solo.coderiver.user.enums.ExperienceEnum;
 import com.solo.coderiver.user.enums.ResultEnum;
 import com.solo.coderiver.user.enums.RoleEnum;
 import com.solo.coderiver.user.enums.TalentsSortEnum;
@@ -157,6 +159,16 @@ public class UserServiceImpl implements UserService {
                 RoleDTO dto = new RoleDTO(role.getCode(), role.getMsg());
                 dtos.add(dto);
             }
+        }
+        return dtos;
+    }
+
+    @Override
+    public List<ExperienceDTO> findAllExperience() {
+        ExperienceEnum[] values = ExperienceEnum.values();
+        List<ExperienceDTO> dtos = new ArrayList<>();
+        for (ExperienceEnum experience : values) {
+            dtos.add(new ExperienceDTO(experience.getCode(), experience.getMsg()));
         }
         return dtos;
     }

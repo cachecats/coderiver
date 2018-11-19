@@ -2,6 +2,7 @@ package com.solo.coderiver.user.controller;
 
 import com.solo.coderiver.user.VO.ResultVO;
 import com.solo.coderiver.user.VO.UserInfoVO;
+import com.solo.coderiver.user.dto.ExperienceDTO;
 import com.solo.coderiver.user.dto.RoleDTO;
 import com.solo.coderiver.user.dto.UserInfoDTO;
 import com.solo.coderiver.user.enums.ResultEnum;
@@ -90,6 +91,13 @@ public class UserController {
     public ResultVO getAllRoles() {
         List<RoleDTO> allRoles = userService.findAllRoles();
         return ResultVOUtils.success(allRoles);
+    }
+
+    @GetMapping("/get-experiences")
+    @ApiOperation("获取所有工作经验")
+    public ResultVO getAllExperience(){
+        List<ExperienceDTO> allExperience = userService.findAllExperience();
+        return ResultVOUtils.success(allExperience);
     }
 
     @PostMapping("/like")

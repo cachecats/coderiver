@@ -1,6 +1,7 @@
 package com.solo.coderiver.user.service;
 
 import com.solo.coderiver.user.dataobject.UserInfo;
+import com.solo.coderiver.user.dto.ExperienceDTO;
 import com.solo.coderiver.user.dto.RoleDTO;
 import com.solo.coderiver.user.dto.UserInfoDTO;
 import org.springframework.data.domain.Pageable;
@@ -96,5 +97,11 @@ public interface UserService {
      * @return
      */
     List<RoleDTO> findAllRoles();
+
+    /**
+     * 获取所有的经验信息
+     * @return
+     */
+    List<ExperienceDTO> findAllExperience();
 
 }

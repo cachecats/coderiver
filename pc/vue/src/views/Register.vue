@@ -14,6 +14,26 @@
       <el-form-item label="昵称" prop="nickname">
         <el-input v-model="form.nickname"></el-input>
       </el-form-item>
+      <el-form-item label="选择角色" prop="role">
+        <el-select v-model="form.role" placeholder="请选择">
+        <el-option
+            v-for="item in roles"
+            :key="item.code"
+            :label="item.name"
+            :value="item.code">
+        </el-option>
+      </el-select>
+      </el-form-item>
+      <el-form-item label="工作经验" prop="experience">
+        <el-select v-model="form.experience" placeholder="请选择">
+          <el-option
+              v-for="item in experiences"
+              :key="item.code"
+              :label="item.name"
+              :value="item.code">
+          </el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="验证码">
         <el-input v-model="form.verify"></el-input>
       </el-form-item>
@@ -76,7 +96,9 @@
           password: '',
           checkPass: '',
           nickname: '',
-          verify: ''
+          verify: '',
+          role: 1, //默认设计师
+          experience: 0 //默认在校生
         },
         rules: {
           email: [
@@ -92,19 +114,36 @@
             { validator: verifyNickname, trigger: 'blur'}
           ]
         },
-        loading: false
+        loading: false,
+        roles: [],
+        experiences: []
       }
     },
     created() {
       console.log(this.$route.params.msg)
+      this._getRoles();
+      this._getExperiences()
     },
     methods: {
+
+      _getRoles(){
+        this.$api.getAllRoles().then(res => {
+          console.log("getAllRoles", res);
+          this.roles = res.data
+        })
+      },
+
+      _getExperiences(){
+        this.$api.getAllExperiences().then(res => {
+          console.log("getAllExperiences", res);
+          this.experiences = res.data
+        })
+      },
 
       onSubmit() {
 
         this.$refs.form.validate((valid) => {
           if(valid){
-            console.log("submit");
             console.log(this.form);
             this.doRegister()
           }else{
@@ -123,7 +162,9 @@
         let params = {
           email: this.form.email,
           password: this.form.password,
-          name: this.form.nickname
+          name: this.form.nickname,
+          role: this.form.role,
+          experience: this.form.experience
         };
         console.log("params: ", params);
         this.$api.register(params).then(res => {
