@@ -8,7 +8,9 @@ coderiver 中文名 河码，是一个为程序员和设计师提供项目协作
 
 coderiver河码 类似程序员客栈，但主要目的是方便各细分领域人才之间技术交流，共同成长，多人协作完成项目。暂不涉及金钱交易。
 
-更详细的介绍请点击链接查看在线文档：https://shimo.im/docs/7UrBDsLgd8AGeZk4/
+关于项目一些大家关心的问题的整理：https://shimo.im/docs/7UrBDsLgd8AGeZk4/
+
+更详细的项目介绍：https://shimo.im/docs/MDxvwTXPoK0WiSyL
 
 ## 现状
 
