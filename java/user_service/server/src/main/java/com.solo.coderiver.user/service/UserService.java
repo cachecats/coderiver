@@ -45,6 +45,12 @@ public interface UserService {
     UserInfo loginByTel(String tel, String password);
 
     /**
+     * 注销登录
+     * @param userId
+     */
+    void logout(String userId);
+
+    /**
      * 通过id查询用户
      *
      * @param id

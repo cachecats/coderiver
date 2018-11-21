@@ -23,4 +23,8 @@ public class RedisUtils {
     public void setString(String key, String value, Long expired, TimeUnit timeUnit){
         stringRedisTemplate.opsForValue().set(key, value, expired, timeUnit);
     }
+
+    public void deleteString(String key){
+        stringRedisTemplate.delete(key);
+    }
 }

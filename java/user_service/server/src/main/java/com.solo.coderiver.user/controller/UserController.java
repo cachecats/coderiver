@@ -22,10 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -125,6 +122,18 @@ public class UserController {
         //取消点赞,先存到Redis里面，再定时写到数据库里
         redisService.unlikeFromRedis(likedUserId, likedPostId);
         redisService.decrementLikedCount(likedUserId);
+        return ResultVOUtils.success();
+    }
+
+    /**
+     * 登出，注销登录
+     * @return
+     */
+    @PostMapping("/logout/{userId}")
+    @ApiOperation("注销登录")
+    public ResultVO logout(@PathVariable("userId") String userId){
+        //即使删除redis中token失败，也返回成功。因为前端已经清除掉cookie中信息了
+        userService.logout(userId);
         return ResultVOUtils.success();
     }
 

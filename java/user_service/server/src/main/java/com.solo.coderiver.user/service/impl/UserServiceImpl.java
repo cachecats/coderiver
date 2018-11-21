@@ -108,6 +108,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void logout(String userId) {
+        //从 Redis 中删除当前用户对应的key
+        String key = String.format(RedisConsts.TOKEN_TEMPLATE, userId);
+        redisUtils.deleteString(key);
+    }
+
+    @Override
     public UserInfo findById(String id) {
         return userRepository.findUserInfoById(id);
     }
