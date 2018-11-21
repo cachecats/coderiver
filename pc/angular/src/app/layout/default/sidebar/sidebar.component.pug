@@ -1,0 +1,11 @@
+.alain-default__aside-inner
+  nz-dropdown.alain-default__aside-user(nzTrigger='click')
+    .user-block-dropdown(nz-dropdown)
+      nz-avatar.alain-default__aside-user-avatar([nzSrc]='settings.user.avatar')
+      .alain-default__aside-user-info
+        strong {{settings.user.name}}
+        p.text-truncate.mb0 {{settings.user.email}}
+    ul(nz-menu)
+      li(nz-menu-item, routerLink='/pro/account/center') 个人中心
+      li(nz-menu-item, routerLink='/pro/account/settings') 个人设置
+  sidebar-nav.d-block.py-lg

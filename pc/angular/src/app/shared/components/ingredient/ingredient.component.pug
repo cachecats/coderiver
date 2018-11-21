@@ -1,0 +1,3 @@
+a.list-group-item(cursor='pointer')
+  | {{ ingredient.name }} ({{ ingredient.amount }})
+  button.btn.btn-danger.pull-right.btn-small(type='button', (click)='onRemoveIngredient()') Remove

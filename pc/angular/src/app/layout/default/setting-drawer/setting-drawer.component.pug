@@ -1,0 +1,47 @@
+nz-drawer([(nzVisible)]='collapse', [nzWidth]='500', (nzOnClose)='toggle()')
+  .setting-drawer__content
+    .setting-drawer__body.setting-drawer__theme
+      h3.setting-drawer__title 主题色
+      span.setting-drawer__theme-tag(*ngFor='let c of colors', nz-tooltip, [ngStyle]="{ 'background-color': c.color }", (click)='changeColor(c.color)', [nzTitle]='c.key')
+        i.anticon.anticon-check(*ngIf='color === c.color')
+    nz-divider
+    .setting-drawer__body
+      h3.setting-drawer__title 设置
+      nz-tabset
+        nz-tab(nzTitle='顶部')
+          .setting-drawer__body
+            setting-drawer-item([data]="data['alain-default-header-hg']")
+            setting-drawer-item([data]="data['alain-default-header-bg']")
+            setting-drawer-item([data]="data['alain-default-header-padding']")
+        nz-tab(nzTitle='侧边栏')
+          setting-drawer-item([data]="data['alain-default-aside-wd']")
+          setting-drawer-item([data]="data['alain-default-aside-bg']")
+          setting-drawer-item([data]="data['alain-default-aside-collapsed-wd']")
+          setting-drawer-item([data]="data['alain-default-aside-nav-padding-top-bottom']")
+        nz-tab(nzTitle='内容')
+          setting-drawer-item([data]="data['alain-default-content-bg']")
+          setting-drawer-item([data]="data['alain-default-content-heading-bg']")
+          setting-drawer-item([data]="data['alain-default-content-heading-border']")
+          setting-drawer-item([data]="data['alain-default-content-padding']")
+        nz-tab(nzTitle='其它')
+          setting-drawer-item([data]="data['form-state-visual-feedback-enabled']")
+          setting-drawer-item([data]="data['preserve-white-spaces-enabled']")
+          setting-drawer-item([data]="data['nz-table-img-radius']")
+          setting-drawer-item([data]="data['nz-table-img-margin-right']")
+          setting-drawer-item([data]="data['nz-table-img-max-width']")
+          setting-drawer-item([data]="data['nz-table-img-max-height']")
+    nz-divider
+    .setting-drawer__body
+      .setting-drawer__body-item
+        | 固定头和侧边栏
+        nz-switch(nzSize='small', [(ngModel)]='layout.fixed', (ngModelChange)="setLayout('fixed', layout.fixed)")
+      .setting-drawer__body-item
+        | 色弱模式
+        nz-switch(nzSize='small', [(ngModel)]='layout.colorWeak', (ngModelChange)="setLayout('colorWeak', layout.colorWeak)")
+    nz-divider
+    button((click)='apply()', type='button', nz-button, nzType='primary') 预览
+    button((click)='reset()', type='button', nz-button) 重置
+    button((click)='copyVar()', type='button', nz-button) 拷贝
+    nz-alert.mt-md(nzType='warning', nzMessage='配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改参数配置文件 src/styles/theme.less')
+.setting-drawer__handle([ngClass]="{'setting-drawer__handle-opened': collapse}" , (click)='toggle()')
+  i.anticon.setting-drawer__handle-icon([ngClass]="{'anticon-close': collapse, 'anticon-setting': !collapse}")

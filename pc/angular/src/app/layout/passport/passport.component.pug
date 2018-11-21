@@ -1,0 +1,14 @@
+.container
+  .wrap
+    .top
+      .head
+        img.logo(src='./assets/logo-color.svg')
+        span.title ng-alain
+      .desc 武林中最有影响力的《葵花宝典》；欲练神功，挥刀自宫
+    router-outlet
+    global-footer([links]='links')
+      | Copyright
+      i.anticon.anticon-copyright
+      | 2017
+      a(href='//github.com/cipchk', target='_blank') 卡色
+      | 出品

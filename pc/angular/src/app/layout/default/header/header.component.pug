@@ -1,0 +1,46 @@
+.alain-default__header-logo
+  a.alain-default__header-logo-link([routerLink]="['/']")
+    img.alain-default__header-logo-expanded(src='./assets/logo-full.svg', alt='{{settings.app.name}}', style='max-height:40px;')
+    |
+    img.alain-default__header-logo-collapsed(src='./assets/logo.svg', alt='{{settings.app.name}}', style='max-height:30px;')
+.alain-default__nav-wrap
+  ul.alain-default__nav
+    // Menu
+    li
+      .alain-default__nav-item((click)='toggleCollapsedSidebar()')
+        i(nz-icon, type="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}")
+    // Github Page
+    li
+      a.alain-default__nav-item(href='//github.com/ng-alain/ng-alain', target='_blank')
+        i(nz-icon, type='github')
+    // Lock Page
+    li.hidden-mobile
+      .alain-default__nav-item([routerLink]="['/lock']")
+        i(nz-icon, type='lock')
+    // Search Button
+    li.hidden-pc((click)='searchToggleChange()')
+      .alain-default__nav-item
+        i(nz-icon, type='search')
+  header-search.alain-default__search([toggleChange]='searchToggleStatus')
+  ul.alain-default__nav
+    // Notify
+    li
+      header-notify
+    // Task
+    li.hidden-mobile
+      header-task
+    // App Icons
+    li.hidden-mobile
+      header-icon
+    // Settings
+    li.hidden-mobile
+      nz-dropdown(nzTrigger='click', nzPlacement='bottomRight')
+        .alain-default__nav-item(nz-dropdown)
+          i(nz-icon, type='setting')
+        div(nz-menu, style='width:200px;')
+          div(nz-menu-item)
+            header-fullscreen
+          div(nz-menu-item)
+            header-storage
+    li.hidden-mobile
+      header-user
