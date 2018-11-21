@@ -17,6 +17,9 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_DECORATION_FILTER_ORDER;
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
@@ -38,6 +41,16 @@ public class AuthFilter extends ZuulFilter {
     //排除过滤的 uri 地址
     private static final String LOGIN_URI = "/user/login";
     private static final String REGISTER_URI = "/user/register";
+    private static final String GET_ROLES_URI = "/user/get-roles";
+    private static final String GET_EXPERIENCES_URI = "/user/get-experiences";
+
+    private static final String[] IGNORE_URIS = {
+            "/user/login",
+            "/user/register",
+            "/user/get-roles",
+            "/user/get-experiences"
+    };
+
 
     //无权限时的提示语
     private static final String INVALID_TOKEN = "invalid token";
@@ -57,13 +70,16 @@ public class AuthFilter extends ZuulFilter {
     public boolean shouldFilter() {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
-
         log.info("uri:{}", request.getRequestURI());
-        //注册和登录接口不拦截，其他接口都要拦截校验 token
-        if (LOGIN_URI.equals(request.getRequestURI()) ||
-                REGISTER_URI.equals(request.getRequestURI())) {
-            return false;
+
+        //IGNORE_URIS 中的接口不拦截，其他接口都要拦截校验 token
+        List<String> uris = Arrays.asList(IGNORE_URIS);
+        for (String uri : uris) {
+            if (uri.equals(request.getRequestURI())){
+                return false;
+            }
         }
+
         return true;
     }
 
