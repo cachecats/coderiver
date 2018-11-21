@@ -17,7 +17,7 @@
         </div>
 
         <div class="login" v-if="isLogin">
-          <img src="../assets/avatar.png" width="32px" height="32px"/>
+          <img :src="userAvatar" width="32px" height="32px"/>
           <el-popover
               v-model="popoverVisible"
               popper-class="popover"
@@ -30,7 +30,7 @@
                 <span class="item-text" style="padding: 10px">{{item.name}}</span>
               </div>
             </div>
-            <span class="name" slot="reference" :class="{'normal': isHome}">冷小斩</span>
+            <span class="name" slot="reference" :class="{'normal': isHome}">{{userInfo.name}}</span>
           </el-popover>
         </div>
       </div>
@@ -72,6 +72,7 @@
 
   import {Message} from 'element-ui'
   import CookieUtils from '../utils/CookieUtils'
+  import {mapState} from 'vuex'
 
   export default {
     name: "mheader",
@@ -117,9 +118,18 @@
       }
     },
     computed: {
-      isHome() {
-        return this.$store.state.isHome
-      }
+      //头像为空则用默认的头像
+      userAvatar(){
+        if(!this.userInfo.avatar || this.userInfo.avatar === ''){
+          return require('../assets/avatar.png')
+        }else{
+          return this.userInfo.avatar
+        }
+      },
+      ...mapState([
+        'isHome',
+        'userInfo'
+      ]),
     },
     methods: {
       /**
@@ -148,7 +158,6 @@
               password: this.form.password
             };
             this.$api.login(params).then(res => {
-              console.log("login---", res);
               let userInfo = res.data;
               // 存入 vuex 中
               this.$store.commit("setUserInfo", userInfo);
@@ -185,6 +194,7 @@
             break;
           case 2:
             console.log("退出");
+            this.logout();
             break;
         }
       },
@@ -200,6 +210,26 @@
       //新建项目
       createProject() {
         this.$router.push({name: "newproject", params: {}})
+      },
+
+      logout(){
+        this.$api.logout(this.userInfo.id).then(res => {
+          console.log('logout', res);
+        }).finally(() => {
+          //无论请求成功与否都在前端清除掉登录状态
+          this.clearLoginStatus();
+        })
+      },
+
+      //清除登录状态，
+      clearLoginStatus(){
+        //删掉 cookie 中存的 token 和 userId
+        CookieUtils.removeCookie("token");
+        CookieUtils.removeCookie("userId");
+        //清除 vuex 中的用户信息
+        this.$store.commit("setUserInfo", {});
+        this.isLogin = false;
+        Message.info("已安全退出")
       }
 
     }

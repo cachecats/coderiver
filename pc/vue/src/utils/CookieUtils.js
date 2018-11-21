@@ -20,7 +20,12 @@ export default {
    * @param key
    */
   removeCookie(key) {
-    setCookie(key, '', -1);//这里只需要把Cookie保质期退回一天便可以删除
+    let date = new Date();
+    date.setTime(date.getTime() - 1);
+    let delValue = this.getCookie(key);
+    if (delValue != null) {
+      document.cookie = key+'='+delValue+';expires='+date.toGMTString();
+    }
   },
 
   /**

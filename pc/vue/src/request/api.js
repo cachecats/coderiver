@@ -32,6 +32,15 @@ export default {
    */
   getAllExperiences(){
     return axios.get(`${base}/user/get-experiences`)
+  },
+
+  /**
+   * 退出登录
+   * @param userId
+   * @returns {*}
+   */
+  logout(userId){
+    return axios.post(`${base}/user/logout/${userId}`)
   }
 
 

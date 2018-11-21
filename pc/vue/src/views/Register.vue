@@ -16,13 +16,13 @@
       </el-form-item>
       <el-form-item label="选择角色" prop="role">
         <el-select v-model="form.role" placeholder="请选择">
-        <el-option
-            v-for="item in roles"
-            :key="item.code"
-            :label="item.name"
-            :value="item.code">
-        </el-option>
-      </el-select>
+          <el-option
+              v-for="item in roles"
+              :key="item.code"
+              :label="item.name"
+              :value="item.code">
+          </el-option>
+        </el-select>
       </el-form-item>
       <el-form-item label="工作经验" prop="experience">
         <el-select v-model="form.experience" placeholder="请选择">
@@ -56,9 +56,9 @@
         if (value === '') {
           callback(new Error("请输入邮箱"))
         } else {
-          if(CommonUtils.checkEmail(value)){
+          if (CommonUtils.checkEmail(value)) {
             callback()
-          }else{
+          } else {
             callback(new Error("邮箱格式不正确"))
           }
         }
@@ -85,7 +85,7 @@
       let verifyNickname = (rule, value, callback) => {
         if (!value || value === '') {
           callback(new Error("请输入昵称"))
-        }else{
+        } else {
           callback()
         }
       };
@@ -111,7 +111,7 @@
             {validator: verifyRepass, trigger: 'blur'}
           ],
           nickname: [
-            { validator: verifyNickname, trigger: 'blur'}
+            {validator: verifyNickname, trigger: 'blur'}
           ]
         },
         loading: false,
@@ -126,14 +126,14 @@
     },
     methods: {
 
-      _getRoles(){
+      _getRoles() {
         this.$api.getAllRoles().then(res => {
           console.log("getAllRoles", res);
           this.roles = res.data
         })
       },
 
-      _getExperiences(){
+      _getExperiences() {
         this.$api.getAllExperiences().then(res => {
           console.log("getAllExperiences", res);
           this.experiences = res.data
@@ -143,21 +143,21 @@
       onSubmit() {
 
         this.$refs.form.validate((valid) => {
-          if(valid){
+          if (valid) {
             console.log(this.form);
             this.doRegister()
-          }else{
+          } else {
             console.log('no pass')
             return false
           }
         })
       },
 
-      resetData(){
+      resetData() {
         this.$refs.form.resetFields()
       },
 
-      doRegister(){
+      doRegister() {
         this.loading = true;
         let params = {
           email: this.form.email,
@@ -169,10 +169,10 @@
         console.log("params: ", params);
         this.$api.register(params).then(res => {
           this.loading = false;
-          console.log(res)
+          // console.log(res)
         }).catch(err => {
           this.loading = false;
-          console.log(err)
+          // console.log(err)
         })
       }
     }
