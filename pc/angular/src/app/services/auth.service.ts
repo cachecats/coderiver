@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
-import { IToken } from '../../../server/modules/auth/interfaces/token.interface';
+import { IToken } from '@shared/interfaces/token.interface';
 import 'rxjs/add/operator/mergeMap';
 
 @Injectable()

@@ -20,7 +20,7 @@ import { DelonUtilModule } from '@delon/util';
 
 // #region mock
 import { DelonMockModule } from '@delon/mock';
-import * as MOCKDATA from '../../../_mock';
+import * as MOCKDATA from '../../_mock';
 import { environment } from '@env/environment';
 const MOCK_MODULES = !environment.production
   ? [DelonMockModule.forRoot({ data: MOCKDATA })]

@@ -19120,14 +19120,6 @@ app-layout router-outlet + * {
   }
 }
 
-// issues: https://github.com/ant-design/ant-design/issues/13091
-.ant-dropdown {
-  &-trigger .anticon:not(.anticon-ellipsis),
-  &-link .anticon:not(.anticon-ellipsis) {
-    font-size: inherit !important;
-  }
-}
-
 // Core CSS
 .h1,
 .h2,
@@ -20533,6 +20525,8 @@ body {
     position: relative;
     border-left: 3px solid transparent;
     transition: border-left-color 0.4s ease;
+    display: flex;
+    flex-direction: column;
     &-link {
       color: @alain-default-aside-nav-text-color;
       text-decoration: none !important;
