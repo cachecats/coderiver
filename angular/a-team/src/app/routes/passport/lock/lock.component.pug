@@ -1,0 +1,13 @@
+.ant-card.width-lg(style='margin: 0 auto;')
+  .ant-card-body
+    .avatar
+      nz-avatar([nzSrc]='settings.user.avatar', nzIcon='anticon anticon-user', nzSize='large')
+    form.mt-md(nz-form, [formGroup]='f', (ngSubmit)='submit()', role='form')
+      nz-form-item
+        nz-form-control
+          nz-input-group(nzsuffixicon='anticon anticon-lock')
+            input(type='password', nz-input, formControlName='password')
+          nz-form-explain(*ngIf="f.get('password').dirty && f.get('password').errors") 请输入密码！
+      nz-row(nzType='flex', nzAlign='middle')
+        nz-col([nzOffset]='12', [nzSpan]='12', style='text-align:right;')
+          button(nz-button, [disabled]='!f.valid', nzType='primary') 锁屏

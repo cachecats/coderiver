@@ -1,0 +1,55 @@
+h3 注册
+form(nz-form, [formGroup]="form", (ngSubmit)="submit()", role="form")
+  nz-alert.mb-lg(*ngIf="error", nzType='error', nzMessage='error', [nzShowIcon]="true")
+  nz-form-item
+    nz-form-control
+      nz-input-group(nzSize='large', nzAddOnBeforeIcon='anticon anticon-user')
+        input(nz-input, formControlName='mail', placeholder='Email')
+      ng-container(*ngIf='mail.dirty && mail.errors')
+        nz-form-explain(*ngIf='mail.errors?.required') 请输入邮箱地址！
+        nz-form-explain(*ngIf='mail.errors?.email') 邮箱地址格式错误！
+  nz-form-item
+    nz-form-control
+      nz-popover([nzPlacement]="'right'", [nzTrigger]="'focus'", [(nzVisible)]="visible", nzOverlayClassName="register-password-cdk", [nzOverlayStyle]="{'width.px': 240}")
+        nz-input-group(nzSize='large', nz-popover, nzAddOnBeforeIcon='anticon anticon-lock')
+          input(nz-input, type='password', formControlName='password', placeholder='Password')
+        nz-form-explain(*ngIf='password.dirty && password.errors') 请输入密码！
+        ng-template(#nzTemplate)
+          div(style='padding: 4px 0;')
+            ng-container([ngSwitch]='status')
+              .success(*ngSwitchCase="'ok'") 强度：强
+              .warning(*ngSwitchCase="'pass'") 强度：中
+              .error(*ngSwitchDefault) 强度：太短
+            div([className]= "'progress-'+status")
+              nz-progress([nzPercent]='progress', [nzStatus]='passwordProgressMap[status]', [nzStrokeWidth]='6', [nzShowInfo]='false')
+            p.mt-sm 请至少输入 6 个字符。请不要使用容易被猜到的密码。
+  nz-form-item
+    nz-form-control
+      nz-input-group(nzSize='large', nzAddOnBeforeIcon='anticon anticon-lock')
+        input(nz-input, type='password', formControlName='confirm', placeholder='Confirm Password')
+      nz-form-explain(*ngIf='confirm.dirty && confirm.errors')
+        ng-container(*ngIf='confirm.errors.required') 请确认密码！
+        ng-container(*ngIf='confirm.errors.equar') 两次输入的密码不匹配!
+  nz-form-item
+    nz-form-control
+      nz-input-group(nzSize='large', [nzAddOnBefore]="addOnBeforeTemplate")
+        ng-template(#addOnBeforeTemplate)
+          nz-select(formControlName='mobilePrefix', style='width: 100px;')
+            nz-option(nzlabel='+86', nzvalue='+86')
+            nz-option(nzlabel='+87', nzvalue='+87')
+        input(formControlName='mobile', nz-input, placeholder='Phone number')
+      nz-form-explain(*ngIf='mobile.dirty && mobile.errors')
+        ng-container(*ngIf='mobile.errors.required') 请输入手机号！
+        ng-container(*ngIf='mobile.errors.pattern') 手机号格式错误！
+  nz-form-item
+    nz-form-control
+      nz-row([nzGutter]='8')
+        nz-col([nzSpan]='16')
+          nz-input-group(nzSize='large', nzAddOnBeforeIcon='anticon anticon-mail')
+            input(nz-input, formControlName='captcha', placeholder='Captcha')
+          nz-form-explain(*ngIf='captcha.dirty && captcha.errors') 请输入验证码！
+        nz-col([nzSpan]='8')
+          button(type='button', nz-button, nzSize='large', (click)='getCaptcha()', [disabled]='count', nzblock, [nzLoading]='http.loading') {{ count ? count + 's' : '获取验证码'}}
+  nz-form-item
+    button.submit(nz-button, nzType='primary', nzSize='large', type='submit', [nzLoading]='http.loading') 注册
+    a.login(routerLink='/passport/login') 使用已有账户登录

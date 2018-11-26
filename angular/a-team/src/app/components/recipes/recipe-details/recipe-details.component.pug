@@ -1,0 +1,24 @@
+.row
+  .col-xs-12
+    img.img-responsive([src]='recipe.imagePath', alt)
+.row
+  .col-xs-12
+    h1 {{ recipe.name }}
+.row
+  .col-xs-12
+    .btn-group(appdropdown)
+      button.btn.btn-primary.dropdown-toggle(type='button')
+        | Manage Recipe
+        span.caret.caret-clean
+      .dropdown-menu
+        li
+          a(routerLink='/shopping-list', (click)='onAddToShoppingList()') To Shopping List
+        li
+          a([routerLink]="['edit']") Edit Recipe
+        li
+          a((click)='onDeleteRecipe()', style='cursor: pointer;') Delete Recipe
+.row
+  .col-xs-12 {{ recipe.description }}
+.row
+  .col-xs-6
+    app-ingredient(*ngFor='let ingredient of recipe.ingredients', [ingredient]='ingredient')
