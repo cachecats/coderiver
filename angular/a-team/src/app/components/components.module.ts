@@ -1,21 +1,40 @@
 import { NgModule } from '@angular/core';
+
 import { SharedModule } from '@shared/shared.module';
-import { HeaderComponent } from './header/header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipesListComponent } from './recipes/recipes-list/recipes-list.component';
-import { RecipeItemComponent } from './recipes/recipes-list/recipe-item/recipe-item.component';
-import { RecipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+// dashboard pages
+import { DashboardComponent } from './dashboard/dashboard.component';
+// passport pages
+import { UserLoginComponent } from './passport/login/login.component';
+import { UserRegisterComponent } from './passport/register/register.component';
+import { UserRegisterResultComponent } from './passport/register-result/register-result.component';
+// single pages
+import { CallbackComponent } from './callback/callback.component';
+import { UserLockComponent } from './passport/lock/lock.component';
+import { Exception403Component } from './exception/403.component';
+import { Exception404Component } from './exception/404.component';
+import { Exception500Component } from './exception/500.component';
+
+const COMPONENTS = [
+  DashboardComponent,
+  // passport pages
+  UserLoginComponent,
+  UserRegisterComponent,
+  UserRegisterResultComponent,
+  // single pages
+  CallbackComponent,
+  UserLockComponent,
+  Exception403Component,
+  Exception404Component,
+  Exception500Component
+];
+const COMPONENTS_NOROUNT: any[] = [];
 
 @NgModule({
-  imports: [SharedModule],
+  imports: [ SharedModule],
   declarations: [
-    HeaderComponent,
-    RecipesComponent,
-    RecipesListComponent,
-    RecipeItemComponent,
-    RecipeDetailsComponent,
-    RecipeEditComponent,
-  ]
+    ...COMPONENTS,
+    ...COMPONENTS_NOROUNT
+  ],
+  entryComponents: COMPONENTS_NOROUNT
 })
 export class ComponentsModule {}

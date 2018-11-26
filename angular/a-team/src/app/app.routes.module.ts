@@ -3,21 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { SimpleGuard } from '@delon/auth';
 import { environment } from '@env/environment';
 // layout
-import { LayoutDefaultComponent } from '../layout/default/default.component';
-import { LayoutFullScreenComponent } from '../layout/fullscreen/fullscreen.component';
-import { LayoutPassportComponent } from '../layout/passport/passport.component';
+import { LayoutDefaultComponent } from '@layout/default/default.component';
+import { LayoutFullScreenComponent } from '@layout/fullscreen/fullscreen.component';
+import { LayoutPassportComponent } from '@layout/passport/passport.component';
 // dashboard pages
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from '@components/dashboard/dashboard.component';
 // passport pages
-import { UserLoginComponent } from './passport/login/login.component';
-import { UserRegisterComponent } from './passport/register/register.component';
-import { UserRegisterResultComponent } from './passport/register-result/register-result.component';
+import { UserLoginComponent } from '@components/passport/login/login.component';
+import { UserRegisterComponent } from '@components/passport/register/register.component';
+import { UserRegisterResultComponent } from '@components/passport/register-result/register-result.component';
 // single pages
-import { CallbackComponent } from './callback/callback.component';
-import { UserLockComponent } from './passport/lock/lock.component';
-import { Exception403Component } from './exception/403.component';
-import { Exception404Component } from './exception/404.component';
-import { Exception500Component } from './exception/500.component';
+import { CallbackComponent } from '@components/callback/callback.component';
+import { UserLockComponent } from '@components/passport/lock/lock.component';
+import { Exception403Component } from '@components/exception/403.component';
+import { Exception404Component } from '@components/exception/404.component';
+import { Exception500Component } from '@components/exception/500.component';
 
 const routes: Routes = [
   {
@@ -61,4 +61,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { useHash: environment.useHash })],
   exports: [RouterModule]
 })
-export class RouteRoutingModule { }
+export class RoutesModule { }

@@ -22,7 +22,7 @@
       "es2018",
       "dom"
     ],
-         "paths": {
+    "paths": {
       "@shared": [
         "app/shared"
       ],
@@ -58,6 +58,12 @@
       ],
       "@services/*": [
         "app/services/*"
+      ],
+      "@layout": [
+        "app/layout"
+      ],
+      "@layout/*": [
+        "app/layout/*"
       ]
     }
   },

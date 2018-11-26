@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/shared/components/ingredient/ingredient.component.spec.ts">
+    <testCase name="IngredientComponent should create" duration="634">
+      <failure message="TypeError: Cannot read property &apos;name&apos; of undefined"><![CDATA[TypeError: Cannot read property 'name' of undefined
+    at Object.eval [as updateRenderer] (ng:///DynamicTestModule/IngredientComponent.ngfactory.js:22:36)
+    at Object.debugUpdateRenderer [as updateRenderer] (/home/xyc/Development/coderiver/angular/packages/core/src/view/services.ts:411:19)
+    at checkAndUpdateView (/home/xyc/Development/coderiver/angular/packages/core/src/view/view.ts:368:12)
+    at callViewAction (/home/xyc/Development/coderiver/angular/packages/core/src/view/view.ts:615:11)
+    at execComponentViewsAction (/home/xyc/Development/coderiver/angular/packages/core/src/view/view.ts:559:7)
+    at checkAndUpdateView (/home/xyc/Development/coderiver/angular/packages/core/src/view/view.ts:370:3)
+    at callWithDebugContext (/home/xyc/Development/coderiver/angular/packages/core/src/view/services.ts:652:23)
+    at Object.debugCheckAndUpdateView [as checkAndUpdateView] (/home/xyc/Development/coderiver/angular/packages/core/src/view/services.ts:348:10)
+    at ViewRef_.Object.<anonymous>.ViewRef_.detectChanges (/home/xyc/Development/coderiver/angular/packages/core/src/view/refs.ts:260:16)
+    at ComponentFixture.Object.<anonymous>.ComponentFixture._tick (/home/xyc/Development/coderiver/packages/core/testing/src/component_fixture.ts:107:28)
+    at /home/xyc/Development/coderiver/packages/core/testing/src/component_fixture.ts:120:36
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:388:26)
+    at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/proxy.js:128:39)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:387:32)
+    at Object.onInvoke (/home/xyc/Development/coderiver/angular/packages/core/src/zone/ng_zone.ts:273:25)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:387:32)
+    at Zone.Object.<anonymous>.Zone.run (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:138:43)
+    at NgZone.Object.<anonymous>.NgZone.run (/home/xyc/Development/coderiver/angular/packages/core/src/zone/ng_zone.ts:171:50)
+    at ComponentFixture.Object.<anonymous>.ComponentFixture.detectChanges (/home/xyc/Development/coderiver/packages/core/testing/src/component_fixture.ts:120:19)
+    at beforeEach (/home/xyc/Development/coderiver/angular/a-team/src/app/shared/components/ingredient/ingredient.component.spec.ts:19:13)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:388:26)
+    at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/proxy.js:128:39)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:387:32)
+    at Zone.Object.<anonymous>.Zone.run (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:138:43)
+    at Object.testBody.length (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-zone-patch/index.js:50:27)
+    at Object.asyncJestLifecycle (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/jasmine_async.js:63:37)
+    at resolve (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:56:12)
+    at new Promise (<anonymous>)
+    at mapper (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:43:19)
+    at promise.then (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:87:41)
+    at <anonymous>]]></failure>
+    </testCase>
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/testing/common.spec.ts">
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/shared/directives/dropdown.directive.spec.ts">
+    <testCase name="DropdownDirective should create an instance" duration="7"/>
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/components/passport/lock/lock.component.spec.ts">
+    <testCase name="Pages: lock should create an instance" duration="74"/>
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/layout/default/sidebar/sidebar.component.spec.ts">
+    <testCase name="Layout: Sidebar should create an instance" duration="61"/>
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/app.component.spec.ts">
+    <testCase name="Component: App should create the app" duration="33"/>
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/layout/default/header/header.component.spec.ts">
+    <testCase name="Layout: Header should create an instance" duration="45"/>
+  </file>
+  <file path="/home/xyc/Development/coderiver/angular/a-team/src/app/layout/default/default.component.spec.ts">
+    <testCase name="Layout should create an instance" duration="1748">
+      <failure message="Error: Template parse errors:"><![CDATA[Error: Template parse errors:
+There is no directive with "exportAs" set to "#settingHost" ("debar><section class="alain-default__content"><router-outlet></router-outlet></section><ng-template [ERROR ->]#settingHost="#settingHost"></ng-template>"): ng:///DynamicTestModule/LayoutDefaultComponent.html@0:283
+    at syntaxError (/home/xyc/Development/coderiver/angular/packages/compiler/src/util.ts:100:17)
+    at TemplateParser.Object.<anonymous>.TemplateParser.parse (/home/xyc/Development/coderiver/angular/packages/compiler/src/template_parser/template_parser.ts:106:13)
+    at JitCompiler.Object.<anonymous>.JitCompiler._parseTemplate (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:297:33)
+    at JitCompiler.Object.<anonymous>.JitCompiler._compileTemplate (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:275:11)
+    at /home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:206:42
+    at Set.forEach (<anonymous>)
+    at JitCompiler.Object.<anonymous>.JitCompiler._compileComponents (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:206:15)
+    at /home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:117:12
+    at Object.then (/home/xyc/Development/coderiver/angular/packages/compiler/src/util.ts:89:74)
+    at JitCompiler.Object.<anonymous>.JitCompiler._compileModuleAndAllComponents (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:115:22)
+    at JitCompiler.Object.<anonymous>.JitCompiler.compileModuleAndAllComponentsAsync (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:69:33)
+    at CompilerImpl.Object.<anonymous>.CompilerImpl.compileModuleAndAllComponentsAsync (/home/xyc/Development/coderiver/angular/packages/platform-browser-dynamic/src/compiler_factory.ts:68:27)
+    at TestingCompilerImpl.Object.<anonymous>.TestingCompilerImpl.compileModuleAndAllComponentsAsync (/home/xyc/Development/coderiver/packages/platform-browser-dynamic/testing/src/compiler_factory.ts:57:27)
+    at TestBedViewEngine.Object.<anonymous>.TestBedViewEngine.compileComponents (/home/xyc/Development/coderiver/packages/core/testing/src/test_bed.ts:385:27)
+    at Function.Object.<anonymous>.TestBedViewEngine.compileComponents (/home/xyc/Development/coderiver/packages/core/testing/src/test_bed.ts:168:66)
+    at Object.<anonymous> (/home/xyc/Development/coderiver/angular/a-team/src/testing/common.spec.ts:62:21)
+    at Generator.next (<anonymous>)
+    at /home/xyc/Development/coderiver/angular/a-team/src/testing/common.spec.ts:27:67
+    at new ZoneAwarePromise (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:891:29)
+    at Object.<anonymous>.__awaiter (/home/xyc/Development/coderiver/angular/a-team/src/testing/common.spec.ts:4:10)
+    at /home/xyc/Development/coderiver/angular/a-team/src/testing/common.spec.ts:29:17
+    at done (/home/xyc/Development/coderiver/angular/a-team/src/testing/common.spec.ts:29:5)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:388:26)
+    at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/proxy.js:128:39)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:387:32)
+    at Zone.Object.<anonymous>.Zone.run (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:138:43)
+    at Object.testBody.length.done (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-zone-patch/index.js:51:29)
+    at resolve (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:56:12)
+    at new Promise (<anonymous>)
+    at mapper (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:43:19)
+    at promise.then (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:87:41)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)]]></failure>
+      <failure message="Error: Template parse errors:"><![CDATA[Error: Template parse errors:
+There is no directive with "exportAs" set to "#settingHost" ("debar><section class="alain-default__content"><router-outlet></router-outlet></section><ng-template [ERROR ->]#settingHost="#settingHost"></ng-template>"): ng:///DynamicTestModule/LayoutDefaultComponent.html@0:283
+    at syntaxError (/home/xyc/Development/coderiver/angular/packages/compiler/src/util.ts:100:17)
+    at TemplateParser.Object.<anonymous>.TemplateParser.parse (/home/xyc/Development/coderiver/angular/packages/compiler/src/template_parser/template_parser.ts:106:13)
+    at JitCompiler.Object.<anonymous>.JitCompiler._parseTemplate (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:297:33)
+    at JitCompiler.Object.<anonymous>.JitCompiler._compileTemplate (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:275:11)
+    at /home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:206:42
+    at Set.forEach (<anonymous>)
+    at JitCompiler.Object.<anonymous>.JitCompiler._compileComponents (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:206:15)
+    at /home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:117:12
+    at Object.then (/home/xyc/Development/coderiver/angular/packages/compiler/src/util.ts:89:74)
+    at JitCompiler.Object.<anonymous>.JitCompiler._compileModuleAndAllComponents (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:115:22)
+    at JitCompiler.Object.<anonymous>.JitCompiler.compileModuleAndAllComponentsSync (/home/xyc/Development/coderiver/angular/packages/compiler/src/jit/compiler.ts:65:38)
+    at CompilerImpl.Object.<anonymous>.CompilerImpl.compileModuleAndAllComponentsSync (/home/xyc/Development/coderiver/angular/packages/platform-browser-dynamic/src/compiler_factory.ts:60:35)
+    at TestingCompilerImpl.Object.<anonymous>.TestingCompilerImpl.compileModuleAndAllComponentsSync (/home/xyc/Development/coderiver/packages/platform-browser-dynamic/testing/src/compiler_factory.ts:52:27)
+    at TestBedViewEngine.Object.<anonymous>.TestBedViewEngine._initIfNeeded (/home/xyc/Development/coderiver/packages/core/testing/src/test_bed.ts:399:28)
+    at TestBedViewEngine.Object.<anonymous>.TestBedViewEngine.createComponent (/home/xyc/Development/coderiver/packages/core/testing/src/test_bed.ts:602:10)
+    at Function.Object.<anonymous>.TestBedViewEngine.createComponent (/home/xyc/Development/coderiver/packages/core/testing/src/test_bed.ts:251:36)
+    at it (/home/xyc/Development/coderiver/angular/a-team/src/app/layout/default/default.component.spec.ts:13:29)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:388:26)
+    at ProxyZoneSpec.Object.<anonymous>.ProxyZoneSpec.onInvoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/proxy.js:128:39)
+    at ZoneDelegate.Object.<anonymous>.ZoneDelegate.invoke (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:387:32)
+    at Zone.Object.<anonymous>.Zone.run (/home/xyc/Development/coderiver/angular/a-team/node_modules/zone.js/dist/zone.js:138:43)
+    at Object.testBody.length (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-zone-patch/index.js:50:27)
+    at Object.asyncJestTest (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/jasmine_async.js:108:37)
+    at resolve (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:56:12)
+    at new Promise (<anonymous>)
+    at mapper (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:43:19)
+    at promise.then (/home/xyc/Development/coderiver/angular/a-team/node_modules/jest-jasmine2/build/queue_runner.js:87:41)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)]]></failure>
+    </testCase>
+  </file>
+</testExecutions>

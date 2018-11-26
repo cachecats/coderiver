@@ -1,7 +1,0 @@
-.row
-  .col-xs-12
-    button.btn.btn-success([routerLink]="['new']") New Recipe
-hr
-.row
-  .col-xs-12
-    app-recipe-item(*ngFor='let recipe of recipes; let i = index;', [recipe]='recipe', [recipeIndex]='i')
