@@ -152,36 +152,36 @@
       doLogin() {
         this.pwdError = false;
 
-        this.isLogin = true;
-        this.dialogVisible = false
+        /// 不校验直接登录
+        // this.isLogin = true;
+        // this.dialogVisible = false
+        // this.$store.commit("setUserInfo", {name: "哈哈哈"});
 
-        this.$store.commit("setUserInfo", {name: "哈哈哈"});
 
+        this.$refs.form.validate((valid) => {
+          if (valid) {
+            let params = {
+              email: this.form.emailTel,
+              password: this.form.password
+            };
+            this.$api.login(params).then(res => {
+              let userInfo = res.data;
+              // 存入 vuex 中
+              this.$store.commit("setUserInfo", userInfo);
+              //将 userId 和 token 写入 cookie
+              CookieUtils.setCookie("userId", userInfo.id);
+              CookieUtils.setCookie("token", userInfo.token);
 
-        // this.$refs.form.validate((valid) => {
-        //   if (valid) {
-        //     let params = {
-        //       email: this.form.emailTel,
-        //       password: this.form.password
-        //     };
-        //     this.$api.login(params).then(res => {
-        //       let userInfo = res.data;
-        //       // 存入 vuex 中
-        //       this.$store.commit("setUserInfo", userInfo);
-        //       //将 userId 和 token 写入 cookie
-        //       CookieUtils.setCookie("userId", userInfo.id);
-        //       CookieUtils.setCookie("token", userInfo.token);
-        //
-        //       this.isLogin = true;
-        //       this.dialogVisible = false
-        //     }).catch(err => {
-        //       console.log("err---", err);
-        //       Message.error(err.data.msg);
-        //       this.pwdError = true;
-        //       return false
-        //     })
-        //   }
-        // })
+              this.isLogin = true;
+              this.dialogVisible = false
+            }).catch(err => {
+              console.log("err---", err);
+              Message.error(err.data.msg);
+              this.pwdError = true;
+              return false
+            })
+          }
+        })
       },
 
       /**
