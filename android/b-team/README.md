@@ -10,7 +10,8 @@
 
 模块化开发 + Kotlin + MVVM + RxJava + Glide + ARouter + Dagger2
 
-
+<ul>
+  <li>
 Kotlin ：2017年Kotlin 成为 Android 官方开发语言，而Kotlin又以简洁、安全、实用高效著称，本着学习进步的态度，Kotlin成为本项目开发的不二之选。
 
 MVVM ：低耦合、可重用、双向绑定
@@ -24,6 +25,8 @@ ARouter ： 一个用于帮助 Android App 进行组件化改造的框架 ——
 Dagger2 ：Android最棒的依赖注入框架
 
 模块化开发 ：解耦，各模块可独立运行，加快编译时间。
+  </li>
+</ul>
 
 ## 文件目录
 
