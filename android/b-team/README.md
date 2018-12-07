@@ -13,8 +13,10 @@
 <ul>
   <li>
 Kotlin ：2017年Kotlin 成为 Android 官方开发语言，而Kotlin又以简洁、安全、实用高效著称，本着学习进步的态度，Kotlin成为本项目开发的不二之选。
-
+  </li>
+ <li>
 MVVM ：低耦合、可重用、双向绑定
+  </li>    
 
 RxJava ： 可以让异步操作更加简洁
 
