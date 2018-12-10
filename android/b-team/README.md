@@ -4,9 +4,35 @@
 
 ## 技术栈
 
-本小组技术栈说明，包括相关技术文章链接（第三方，小组内部分享）
+本项目Android端的开发宗旨是“不断学习，不断挖坑，不断优化”
 
-小组内部关于技术栈文档可以放在当前目录`./doc`下面
+所以经B组成员讨论，Android端采用当前最新最热的框架进行开发，
+
+模块化开发 + Kotlin + MVVM + RxJava + Glide + ARouter + Dagger2
+
+<ul>
+  <li>
+Kotlin ：2017年Kotlin 成为 Android 官方开发语言，而Kotlin又以简洁、安全、实用高效著称，本着学习进步的态度，Kotlin成为本项目开发的不二之选。
+  </li>
+  <li>
+MVVM ：低耦合、可重用、双向绑定
+  </li>    
+  <li>
+RxJava ： 可以让异步操作更加简洁
+  <li>
+  <li>
+Glide ：图片加载
+  <li>
+  <li>
+ARouter ： 一个用于帮助 Android App 进行组件化改造的框架 —— 支持模块间的路由、通信、解耦
+  <li>
+  <li>
+Dagger2 ：Android最棒的依赖注入框架
+  <li>
+  <li>
+模块化开发 ：解耦，各模块可独立运行，加快编译时间。
+  </li>
+</ul>
 
 ## 文件目录
 
