@@ -23,3 +23,7 @@ server:
     context-path: /project
 
   port: 8082
+
+mybatis:
+  type-aliases-package: com.solo.coderiver.project.dataobject
+  mapper-locations: classpath:mapper/*.xml
