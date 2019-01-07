@@ -1,11 +1,16 @@
 # coderiver 河码
 
+![logo](./img/logo.png)
+
 ## 项目迁移通知：
+
 团队开发的新版项目迁移至：https://github.com/coderiver-org  
 本仓库将继续作为 Solo 的个人仓库使用。
 
 ## 微信公众平台
 项目的最新进展及形成的各种文档、博客、视频将在官方微信公众平台 `CodeRiver河码` 上首发，欢迎关注。
+
+![](./img/qrcode.jpg)
 
 
 ## 简介
