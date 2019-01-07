@@ -1,5 +1,13 @@
 # coderiver 河码
 
+## 项目迁移通知：
+团队开发的新版项目迁移至：https://github.com/coderiver-org  
+本仓库将继续作为 Solo 的个人仓库使用。
+
+## 微信公众平台
+项目的最新进展及形成的各种文档、博客、视频将在官方微信公众平台 `CodeRiver河码` 上首发，欢迎关注。
+
+
 ## 简介
 
 致力于打造全平台全栈精品开源项目，计划做成包含 pc 端（Vue、React）、移动 H5（Vue、React）、ReactNative、Flutter、Android 原生、微信小程序、Angular、Node、java 后端等9种技术栈的全平台型全栈项目，欢迎关注。
