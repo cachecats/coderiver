@@ -1,4 +1,4 @@
-# coderiver 河码
+# CodeRiver 河码
 
 ![logo](./img/logo.png)
 
